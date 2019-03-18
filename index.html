@@ -28,13 +28,13 @@
 <!-- Blog Div -->
 <div>
   <ul id="blog">
-    <li id="blogID">
-      <H3>Title</h3>
+    <li>
+      <H3 id="title">Title</h3>
       <p>This is a blog</p>
       <ul id="commentsUL">
       </ul>
-      <input id="blogIDTextBox" placeholder="Add comment here"></input>
-      <button onclick="submitComment(blogID1)>Submit</button>
+      <input id="commentTextBox" placeholder="Add comment here"></input>
+      <button onclick="submitComment(document.getElementById('title').innerHTML,document.getElementById('commentTextBox').value)">Submit</button>
     </li>
 
   </ul>
