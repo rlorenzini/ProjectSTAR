@@ -6,14 +6,56 @@
 </head>
 
 <body>
+
+<!-- navbar -->
 <div id="container">
   <input id="emailAddress" placeholder="Email address"></input>
   <input id="password" type="password" placeholder="Password"></input>
   <button id="signInUser">Sign In</button>
   <button id="signOut">Sign Out</button>
   <button id="signUpUser">Join</button>
-
+  <button id="getSaved" onclick="getSavedArticles()">Get Saved Articles</button>
 </div>
+
+<!-- Img Div -->
+
+<!-- News Div -->
+<div>
+<ul id="news">
+</ul>
+</div>
+
+<!-- Blog Div -->
+<div>
+  <ul id="blog">
+    <li id="blogID">
+      <H3>Title</h3>
+      <p>This is a blog</p>
+      <ul id="commentsUL">
+      </ul>
+      <input id="blogIDTextBox" placeholder="Add comment here"></input>
+      <button onclick="submitComment(blogID1)>Submit</button>
+    </li>
+
+  </ul>
+</div>
+<!-- Weather Div -->
+<div>
+  <ul id="weather">
+  </ul>
+<div>
+
+<div>
+  <ul id="weatherNews">
+  </ul>
+</div>
+
+<div>
+  <ul id="articlesUL">
+  </ul>
+</div>
+
+
 
 <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase.js"></script>
 <script>
@@ -29,7 +71,7 @@
   firebase.initializeApp(config);
 </script>
 
-  <script src="main.js"></script>
-  <script src="classes.js"></script>
-  </body>
-  </html>
+<script src="main.js"></script>
+<script src="classes.js"></script>
+</body>
+</html>
