@@ -35,15 +35,9 @@ database.ref("blogs")
     })
 })
 
-database.ref("blogs")
-.on("child_removed",function(snapshot){
-    blogs = blogs.filter((blog) => {
-      return blog.key != snapshot.key
-    })
-})
 database.ref("comments")
 .on("child_added",function(snapshot){
-  let comment = new Comment(snapshot.key,snapshot.val().user,snapshot.val().article,snapshot.val().comment)
+  let comment = new Comment(snapshot.key,snapshot.val().user,snapshot.val().blog,snapshot.val().comment)
   comments.push(comment)
 })
 
@@ -55,12 +49,14 @@ database.ref("comments")
 })
 
 signInUser.addEventListener('click',function() {
-  let emailAddress = document.getElementById('emailAddress').value
+  let email = document.getElementById('emailAddress').value
   let password = document.getElementById('password').value
   firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      })
+  // Handle Errors here.
+  var errorCode = error.code;
+  var errorMessage = error.message;
+  // ...
+});
   getUID()
 
 })
@@ -147,7 +143,7 @@ function submitComment (blog, comment) {
     comment: comment
   })
   let commentsLI = comments.map((comment) => {
-    if (comment.blog == blogID) {
+    if (comment.blog == blog) {
       return `<li>
           ${comment.comment}
           </li>`
@@ -157,12 +153,13 @@ function submitComment (blog, comment) {
   commentsUL.innerHTML = commentsLI.join("")
 }
 
-function addBlog (blogID,title) {
+function addBlog (blogID,title,url) {
   let userID = getUID()
   let blogsRef = database.ref("blogs")
   let blogRef = blogsRef.push({
     blogID: blogID,
-    title: title
+    title: title,
+    url: url
   })
 }
 
@@ -183,3 +180,5 @@ fetch(Houston)
        })
        news.innerHTML=newsID.join("")
    })
+
+addBlog("blog1","title1","index.html")
