@@ -1,0 +1,37 @@
+#header{
+    background-color: black;
+    padding: 2%;
+    text-align: right;
+   
+}
+
+.btn-secondary{
+    border-radius: 4px;
+    padding: .375rem .75rem;
+}
+
+
+
+.btn{
+    padding-top:5px;
+    vertical-align:baseline;
+}
+
+#profileBtn{
+    float: left;
+    width: 50px;
+    height: 50px;
+    background: url("images.png") no-repeat;
+    background-size: 48px;
+    border-radius: 25px;
+}
+
+#signOut{
+    border: 0px;
+}
+
+
+
+#getSaved{
+    border: 0px;
+}
