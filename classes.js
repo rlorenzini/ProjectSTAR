@@ -16,3 +16,13 @@ class Comment {
   this.comment = comment
   }
 }
+
+class Blog {
+  constructor(key,blogID,blogTitle,blogImg,blogContent) {
+    this.key = key
+    this.blogID = blogID
+    this.blogTitle = blogTitle
+    this.blogImg = blogImg
+    this.blogContent = blogContent
+  }
+}
