@@ -1,0 +1,90 @@
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="main.css"></link>
+</head>
+
+<body>
+
+<!-- navbar -->
+<div id="container">
+  <input id="emailAddress" placeholder="Email address"></input>
+  <input id="password" type="password" placeholder="Password"></input>
+  <button id="signInUser">Sign In</button>
+  <button id="signOut">Sign Out</button>
+  <button id="signUpUser">Join</button>
+  <button id="getSaved" onclick="getSavedArticles()">Get Saved Articles</button>
+</div>
+
+<!-- Img Div -->
+
+<input type="text" id= "zipInput" placeholder= "Enter Zip Code">
+<button id= submitBtn>Enter</button><!-- News Div -->
+
+
+<div>
+<ul id="news">
+</ul>
+</div>
+
+<!-- Blog Div -->
+<div>
+  <ul id="blog">
+    <li id="blog1">
+      <H3 class="title">Title</h3>
+      <p>This is a blog</p>
+      <ul class="comments">
+      </ul>
+      <input class="commentTextBox" placeholder="Add comment here"></input>
+      <button onclick="submitComment('blog1',document.getElementById('blog1').getElementsByClassName('title')[0].innerHTML,document.getElementById('blog1').getElementsByClassName('commentTextBox')[0].value)">Submit</button>
+    </li>
+    <li id="blog2">
+      <H3 class="title">Fire</h3>
+      <p>There is a fire in Deer Park!</p>
+      <ul class="comments">
+      </ul>
+      <input class="commentTextBox" placeholder="Add comment here"></input>
+      <button onclick="submitComment('blog2',document.getElementById('blog2').getElementsByClassName('title')[0].innerHTML,document.getElementById('blog2').getElementsByClassName('commentTextBox')[0].value)">Submit</button>
+    </li>
+
+
+  </ul>
+</div>
+<!-- Weather Div -->
+<div>
+  <ul id="weather">
+  </ul>
+<div>
+
+<div>
+  <ul id="weatherNews">
+  </ul>
+</div>
+
+<div>
+  <ul id="articlesUL">
+  </ul>
+</div>
+
+
+
+<script src="https://www.gstatic.com/firebasejs/5.9.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAKoESWbLwStYP27votqibe8szVSaM3w_0",
+    authDomain: "houstonnewsweather.firebaseapp.com",
+    databaseURL: "https://houstonnewsweather.firebaseio.com",
+    projectId: "houstonnewsweather",
+    storageBucket: "",
+    messagingSenderId: "851812061365"
+  };
+  firebase.initializeApp(config);
+</script>
+
+<script src="main.js"></script>
+<!-- <script src="newsWeather.js"></script> -->
+<script src="classes.js"></script>
+</body>
+</html>
