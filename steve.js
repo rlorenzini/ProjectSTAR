@@ -48,11 +48,11 @@ submitBtn.addEventListener("click",function(){
             let newsID = newsItems.articles.map(function(news){
                 console.log(news)
                 if (news.image ==""){
-                    news.image = `IMG_294.jpg`
+                    
                     return `
                     <li> ${news.title}</li>
                     <a href = ${news.link}>Click to get story</a>
-                    <img src = ${news.image}>
+                    
             
                 
                           `}
