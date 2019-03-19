@@ -185,24 +185,7 @@ submitBtn.addEventListener("click",function(){
 })
 
 
- /*
- console.log("Houston");
- let news = document.getElementById("news")
- let Houston = "https://newsapi.org/v2/everything?q=Houston+Texas=US&sortBy=popularity&apiKey=1a6cdc031db640ff9e62b8e0e7716746"
- fetch(Houston)
- .then(response=>response.json())
-    .then(function(json){ return json
-    })
-    .then (function(json){
-        let newsID = json.articles.map(function(news){
-          let articleTitle = JSON.stringify(news.title).replace(/&/, "&amp;").replace(/"/g, "&quot;").replace(/'/g, "\\'")
-            return `<li>
-            <a href = '${news.url}'>${news.title}</a>
-            <button onclick="saveArticle('${articleTitle}','${news.url}')">Save</button>
-            </li>`
-        })
-        news.innerHTML=newsID.join("")
-    })*/
+ 
 function loadData(zippers){
 let localWeather= `https://api.openweathermap.org/data/2.5/weather?zip=${zippers}&units=imperial&apiKey=5c532f33d76a318783dd01c47721de8e`
 fetch(localWeather)
@@ -251,5 +234,5 @@ function getDirection(angle) {
    return directions[Math.round(((angle %= 360) < 0 ? angle + 360 : angle) / 45) % 8];
 }
 
-loadData()
+
 getComments()
