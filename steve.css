@@ -4,4 +4,8 @@ img {
 
 }
     
-.icon {width: 50px}
+.round-image {border-radius:50%}
+#icon {
+   border-radius:50%;
+
+}
