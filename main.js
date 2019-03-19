@@ -4,6 +4,7 @@ let users = []
 let savedArticles = []
 let comments = []
 let blogs = []
+let admin = "False"
 let signInUser = document.getElementById('signInUser')
 let signUpUser = document.getElementById('signUpUser')
 let signOut = document.getElementById('signOut')
@@ -11,6 +12,8 @@ let news = document.getElementById("news")
 let submitBtn = document.getElementById("submitBtn")
 let zipInput = document.getElementById("zipInput")
 let zippers = 77002
+
+document.getElementById('blogEntry').style.display = "none";
 
 window.onload=loadData(zippers)
 
@@ -37,6 +40,19 @@ database.ref("comments")
 .on("child_removed",function(snapshot){
     comments = comments.filter((comment) => {
       return comment.key != snapshot.key
+    })
+})
+
+database.ref("blogs")
+.on("child_added",function(snapshot){
+  let blog = new Blog(snapshot.key,snapshot.val().user,snapshot.val().blogID,snapshot.val().blogTitle,snapshot.val().blogImg,snapshot.val().blogContent)
+  blogs.push(blog)
+})
+
+database.ref("blogs")
+.on("child_removed",function(snapshot){
+    blogs = blogs.filter((blog) => {
+      return blog.key != snapshot.key
     })
 })
 
@@ -83,11 +99,17 @@ firebase.auth().onAuthStateChanged(function(user) {
 function getUID() {
     var user = firebase.auth().currentUser;
     var name, email, photoUrl, uid, emailVerified;
+
     if (user != null) {
-        myUserId = user.uid;
-        return myUserId
-        } else {
-        }}
+      if (user.uid == "78I5hgvWUzVGLpfNUOzEOyTlH8F3") {
+        admin = "True"
+        blogEntry()
+        return user.uid
+      } else {
+      return user.uid
+      }
+}
+}
 
 function userName(emailAddress,password) {
     let usersRef = database.ref("users")
@@ -113,7 +135,7 @@ function getSavedArticles() {
       let articleTitle = articleString.substring(1, articleString.length-1);
       if (article.user == getUID()) {
         return `<li>
-            <a href ='${article.url}'>${articleTitle}</a>
+            <a href ='${article.url}'>${article.title}</a>
             <button onclick="deleteArticle('${article.key}')">Delete</button>
             </li>`
       } else {
@@ -147,15 +169,11 @@ function submitComment (blog, title, comment) {
   document.getElementById(blog).getElementsByClassName('comments')[0].innerHTML = commentsLI.join("")
 }
 
-
 function getComments() {
 database.ref("comments")
 .on("value",function(snapshot){
-    snapshot.forEach(function(childSnapshot) {
-
-      let comment = new Comment(childSnapshot.key,childSnapshot.val().user,childSnapshot.val().blog,childSnapshot.val().title,childSnapshot.val().comment)
+      let comment = new Comment(snapshot.key,snapshot.val().user,snapshot.val().blog,snapshot.val().title,snapshot.val().comment)
       comments.push(comment)
-    });
 });
 setTimeout(function(){
   displayComments()
@@ -178,14 +196,11 @@ function displayComments() {
   }
 }
 
-
 submitBtn.addEventListener("click",function(){
    zippers= zipInput.value
    loadData(zippers)
 })
 
-
- 
 function loadData(zippers){
 let localWeather= `https://api.openweathermap.org/data/2.5/weather?zip=${zippers}&units=imperial&apiKey=5c532f33d76a318783dd01c47721de8e`
 fetch(localWeather)
@@ -215,12 +230,14 @@ let newsID = newsItems.articles.map(function(news){
         return `
         <li>
         <a href = ${news.link}>${news.title}</a></li>
+        <button onclick="saveArticle('${news.title}','${news.link}')">Save</button>
         `}
     else {
     return `
     <li>
     <img src = ${news.image}>
     <a href = ${news.link}>${news.title}</a></li>
+    <button onclick="saveArticle('${news.title}','${news.link}')">Save</button>
           `
     }
 })
@@ -229,10 +246,75 @@ news.innerHTML=newsID.join("")
 })
 }
 
+function blogEntry () {
+  if (admin == "True") {
+    document.getElementById('blogEntry').style.display = "block";
+    let form = document.createElement("form")
+    form.setAttribute('method',"post")
+    // form.setAttribute('action',"submit.php");
+
+    let title = document.createElement("input")
+    title.setAttribute('type',"text")
+    title.setAttribute('id', "titleEntry")
+    title.setAttribute('placeholder',"Title")
+
+    let image = document.createElement("input")
+    image.setAttribute('type',"file")
+    image.setAttribute('id', "imageEntry")
+
+    let content = document.createElement("textarea")
+    content.setAttribute('cols',"35")
+    content.setAttribute('rows',"5")
+    content.setAttribute('id',"contentEntry")
+
+    let blogEntryBtn = document.createElement("button")
+    blogEntryBtn.setAttribute('id',"blogEntryBtn")
+    blogEntryBtn.setAttribute('type',"button")
+    blogEntryBtn.innerHTML = "Submit"
+
+    form.appendChild(title)
+    form.appendChild(image)
+    form.appendChild(content)
+    form.appendChild(blogEntryBtn)
+
+    document.getElementById('blogEntry').appendChild(form);
+
+    blogEntryBtn.addEventListener("click",function(){
+    let userID = getUID()
+    let titleEntry = document.getElementById('titleEntry').value
+    let imageEntry = document.getElementById('imageEntry').value
+    let contentEntry = document.getElementById('contentEntry').value
+    let blogsRef = database.ref("blogs")
+    console.log(titleEntry);
+    let blogRef = blogsRef.push({
+      user: userID,
+      blogID: "blog3",
+      blogTitle: titleEntry,
+      blogImg: imageEntry,
+      blogContent: contentEntry
+    })
+    })
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function getDirection(angle) {
    let directions = ['North', 'North-East', 'East', 'South-East', 'South', 'South-West', 'West', 'North-West'];
    return directions[Math.round(((angle %= 360) < 0 ? angle + 360 : angle) / 45) % 8];
 }
 
-
 getComments()
+getUID()
