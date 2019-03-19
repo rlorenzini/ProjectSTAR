@@ -35,7 +35,7 @@ Using your terminal, get into your work directory. Use <b>git init</b> to initia
 
 <b>git checkout branchName</b> allows you to change branches freely. The branch must exist to change to it; otherwise, use <b>git checkout -b childBranch parentBranch</b> to create the new branch and automatically switch to it. Once you switch to a branch, you are able to do many new things, such as pulling from another branch and merging into a branch.
 
-<b>git merge branchName</b> is used to merge files from another branch. <b>NOTE:</b> wichever branch you are currently working inside of is the branch which will receive the files from the mergin. The branchName is the branch you want to pull files from.
+<b>git merge branchName</b> is used to merge files from another branch. <b>NOTE:</b> whichever branch you are currently working inside of is the branch which will receive the files from the mergin. The branchName is the branch you want to pull files from.
 
 <b>git diff sourceBranch targetBranch</b> is used to check differences in your files. For example,
 
