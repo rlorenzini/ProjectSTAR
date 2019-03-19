@@ -26,11 +26,12 @@ submitBtn.addEventListener("click",function(){
 
     
     let weatherBug = `
-    <h3> Weather from ${weatherItems.name}</h3>
+    <h3> Weather from ${weatherItems.name}:</h3>
     <h4> Current Temperature: ${weatherItems.main.temp} Deg</h4>
     <h4> Wind Speed : ${weatherItems.wind.speed} Mph;    Direction: ${windDirection}</h4>
     <h4> Sunrise: ${sunrise.toLocaleTimeString()} Sunset: ${sunset.toLocaleTimeString()}</h4>
-    <h4> Current Conditions: ${weatherItems.weather[0].description}</h4>
+    <image id= icon src= http://openweathermap.org/img/w/${weatherItems.weather[0].icon}.png>
+   
     `
     weather.innerHTML=weatherBug
 
@@ -86,7 +87,7 @@ submitBtn.addEventListener("click",function(){
 
 }
 
-
+let weatherunlocked = " https://api.weatherunlocked.com/api/current/Houston?app_id=bd380335&app_key=0e7fb52b9aa056322bb61397d5c1e88a"
 
 function getDirection(angle) {
     let directions = ['North', 'North-East', 'East', 'South-East', 'South', 'South-West', 'West', 'North-West'];

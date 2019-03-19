@@ -196,11 +196,11 @@ fetch(localWeather)
     let windDirection = getDirection(weatherItems.wind.deg)
 
 let weatherBug = `
-<h3> Weather from ${weatherItems.name}</h3>
+<h3> Weather from ${weatherItems.name}:</h3>
 <h4> Current Temperature: ${weatherItems.main.temp} Deg</h4>
 <h4> Wind Speed : ${weatherItems.wind.speed} Mph;    Direction: ${windDirection}</h4>
 <h4> Sunrise: ${sunrise.toLocaleTimeString()} Sunset: ${sunset.toLocaleTimeString()}</h4>
-<h4> Current Conditions: ${weatherItems.weather[0].description}</h4>
+<image id= icon src= http://openweathermap.org/img/w/${weatherItems.weather[0].icon}.png>
 `
 weather.innerHTML=weatherBug
 
