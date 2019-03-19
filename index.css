@@ -1,9 +1,33 @@
 #container{
-    display: block;
+    display: grid;
+    grid-template-columns: [first] 50px [second] auto [third] 90px [fourth] 80px [end];
+    grid-template-rows: [row1-start] 25% [row1-end] auto;
     background-color: black;
     padding: 1%;
     text-align: right;
+    position: fixed;
+    width: 100%;
 }
+   
+#container .d-flex {
+    grid-column-start: first;
+    grid-column-end: span 1;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    }
+    
+#container .dropdownIconLogIn {
+    grid-column-start: third;
+    grid-column-end: span 1;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    }
+#container .dropdownIconSignUp {
+    grid-column-start: fourth;
+    grid-column-end: span 1;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    }
 
 .btn-secondary{
     border-radius: 4px;
@@ -28,12 +52,6 @@
     border: 0px;
 }
 
-#signOut:hover{
-
-}
-
-
-
 #getSaved{
     border: 0px;
 }
@@ -44,3 +62,8 @@ img {
 
 }
 /* check above comment  */
+
+#skylinepic{
+width: 100%;
+height: auto;
+}
