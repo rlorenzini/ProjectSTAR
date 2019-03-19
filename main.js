@@ -215,7 +215,7 @@ let weatherBug = `
 <h4> Current Temperature: ${weatherItems.main.temp} Deg</h4>
 <h4> Wind Speed : ${weatherItems.wind.speed} Mph;    Direction: ${windDirection}</h4>
 <h4> Sunrise: ${sunrise.toLocaleTimeString()} Sunset: ${sunset.toLocaleTimeString()}</h4>
-<image id= icon src= http://openweathermap.org/img/w/${weatherItems.weather[0].icon}.png>
+<image id= "icon" src= http://openweathermap.org/img/w/${weatherItems.weather[0].icon}.png>
 `
 weather.innerHTML=weatherBug
 
@@ -235,7 +235,7 @@ let newsID = newsItems.articles.map(function(news){
     else {
     return `
     <li>
-    <img src = ${news.image}>
+    <img class= "round-image" src = ${news.image}>
     <a href = ${news.link}>${news.title}</a></li>
     <button onclick="saveArticle('${news.title}','${news.link}')">Save</button>
           `
