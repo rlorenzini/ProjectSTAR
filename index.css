@@ -1,16 +1,14 @@
-#header{
+#container{
+    display: block;
     background-color: black;
-    padding: 2%;
+    padding: 1%;
     text-align: right;
-   
 }
 
 .btn-secondary{
     border-radius: 4px;
     padding: .375rem .75rem;
 }
-
-
 
 .btn{
     padding-top:5px;
@@ -30,8 +28,19 @@
     border: 0px;
 }
 
+#signOut:hover{
+
+}
+
 
 
 #getSaved{
     border: 0px;
 }
+/* note to whoever: this will need replaced. it is modifying every img right now.  */
+img {
+    width: 100px;
+   height: 100px
+
+}
+/* check above comment  */

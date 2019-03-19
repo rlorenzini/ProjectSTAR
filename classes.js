@@ -1,16 +1,18 @@
 class Article {
-  constructor(key,title,url) {
+  constructor(key,user, title,url) {
     this.key = key
-    this.title = name
+    this.user = user
+    this.title = title
     this.url = url
   }
 }
 
 class Comment {
-  contructor(key,user,article,comment) {
+  constructor(key,user,blog,title,comment) {
   this.key = key
   this.user = user
-  this.article = article
+  this.blog = blog
+  this.title = title
   this.comment = comment
   }
 }
