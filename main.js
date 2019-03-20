@@ -216,14 +216,28 @@ fetch(localWeather)
       let temperature =weatherItems.main.temp
       let tempeRound = Math.round(temperature)
 
+if (windDirection == null){
+  let weatherBug = `
+<div><image id= "icon" src= http://openweathermap.org/img/w/${weatherItems.weather[0].icon}.png>
+ ${weatherItems.name} Weather:<br>
+Temperature: ${tempeRound} °
+ Wind  : ${windRound} Mph 
+ Sunrise: ${sunrise} Sunset: ${sunset}
+</div>`
+weather.innerHTML=weatherBug
+
+}
+else {
+
 let weatherBug = `
 <div><image id= "icon" src= http://openweathermap.org/img/w/${weatherItems.weather[0].icon}.png>
  ${weatherItems.name} Weather:<br>
 Temperature: ${tempeRound} °
- Wind  : ${windRound} ${windDirection}
+ Wind  : ${windDirection} ${windRound} Mph 
  Sunrise: ${sunrise} Sunset: ${sunset}
 </div>`
 weather.innerHTML=weatherBug
+}
 
 let localNews= `https://gnews.io/api/v2/?q=${weatherItems.name}&token=114071df888d1c4880c2bff07c8ffc33`
 fetch(localNews)
@@ -342,7 +356,7 @@ function displayBlogs() {
 
 
 function getDirection(angle) {
-   let directions = ['North', 'North-East', 'East', 'South-East', 'South', 'South-West', 'West', 'North-West'];
+   let directions = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'];
    return directions[Math.round(((angle %= 360) < 0 ? angle + 360 : angle) / 45) % 8];
 }
 
