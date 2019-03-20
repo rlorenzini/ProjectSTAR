@@ -220,7 +220,7 @@ if (windDirection == null){
   let weatherBug = `
 <div>
 <image id= "icon" src= http://openweathermap.org/img/w/${weatherItems.weather[0].icon}.png>
- ${weatherItems.name} Weather:
+ ${weatherItems.name} Weather: <br>
  ${tempeRound} °<br>
  Wind  : ${windRound} Mph <br>
  Sunrise: ${sunrise} <br>
