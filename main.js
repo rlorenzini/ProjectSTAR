@@ -206,16 +206,22 @@ let localWeather= `https://api.openweathermap.org/data/2.5/weather?zip=${zippers
 fetch(localWeather)
 .then(response=>response.json())
     .then(weatherItems=>{
-    let sunset = new Date(weatherItems.sys.sunset*1000)
-    let sunrise = new Date(weatherItems.sys.sunrise*1000)
-    let windDirection = getDirection(weatherItems.wind.deg)
+      let sunsetHMS = new Date(weatherItems.sys.sunset*1000)
+      let sunriseHMS = new Date(weatherItems.sys.sunrise*1000)
+      let sunrise = sunriseHMS.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}); 
+      let sunset = sunsetHMS.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}); 
+      let windDirection = getDirection(weatherItems.wind.deg)
+      let windspeed= weatherItems.wind.speed
+      let windRound= Math.round(windspeed)
+      let temperature =weatherItems.main.temp
+      let tempeRound = Math.round(temperature)
 
 let weatherBug = `
 <div><image id= "icon" src= http://openweathermap.org/img/w/${weatherItems.weather[0].icon}.png>
-Weather from ${weatherItems.name}:<br>
- Current Temperature: ${weatherItems.main.temp} Deg
- Wind Speed : ${weatherItems.wind.speed} Mph;    Direction: ${windDirection}
- Sunrise: ${sunrise.toLocaleTimeString()} Sunset: ${sunset.toLocaleTimeString()}
+ ${weatherItems.name} Weather:<br>
+Temperature: ${tempeRound} °
+ Wind  : ${windRound} ${windDirection}
+ Sunrise: ${sunrise} Sunset: ${sunset}
 </div>`
 weather.innerHTML=weatherBug
 
