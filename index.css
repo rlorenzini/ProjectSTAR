@@ -1,4 +1,33 @@
-#container{
+/* FULL PAGE START */
+#entirePageGrid {
+    display: grid;
+    grid-template-columns: [first] 100% [end];
+    grid-template-rows: [row1] 3.91187rem [row2] 12.015625rem [row3] auto [end];
+    align-items: stretch;
+  }
+  #entirePageGrid .container {
+    grid-column-start: first;
+    grid-column-end: end;
+    grid-row-start: row1;
+    grid-row-end: end;
+    align-self: stretch;
+  
+  }
+  #entirePageGrid .skylineDisplay {
+    grid-column-start: first;
+    grid-column-end: end;
+    grid-row-start: row2;
+    grid-row-end: span 1;
+  }
+  #entirePageGrid .newsBlogWeatherGrid {
+    grid-column-start: first;
+    grid-column-end: end;
+    grid-auto-rows: row3;
+    grid-row-end: end;
+  }
+  /* FULL PAGE END */
+  /* NAVBAR DISPLAY START */
+  #container{
     display: grid;
     grid-template-columns: [first] 50px [second] auto [third] 126.15px [fourth] 90px [fifth] 73px [end];
     grid-template-rows: [row1-start] 25% [row1-end] auto;
@@ -7,85 +36,114 @@
     text-align: right;
     position: fixed;
     width: 100%;
-}
-   
-#container .d-flex {
+  }
+  
+  #container .d-flex {
     grid-column-start: first;
     grid-column-end: span 1;
     grid-row-start: 1;
     grid-row-end: 1;
-    }
-
-#container .dropdownIconZip{
+  }
+  
+  #container .dropdownIconZip{
     grid-column-start: third;
     grid-column-end: span 1;
     grid-row-start: 1;
     grid-row-end: 1;
     justify-self: start;
-    }
-    
-#container .dropdownIconLogIn {
+  }
+  
+  #container .dropdownIconLogIn {
     grid-column-start: fourth;
     grid-column-end: span 1;
     grid-row-start: 1;
     grid-row-end: 1;
-    }
-#container .dropdownIconSignUp {
+  }
+  #container .dropdownIconSignUp {
     grid-column-start: fifth;
     grid-column-end: span 1;
     grid-row-start: 1;
     grid-row-end: 1;
-    }
-
-.btn-secondary{
+  }
+  /* NAVBAR DISPLAY END */
+  /* NEWS BLOG WEATHER GRID DISPLAY START  */
+  #newsBlogWeatherGrid {
+    display: grid;
+    grid-template-columns: [first] 2% [second] 37% [third] 2% [fourth] 37% [fifth] 2% [sixth] 19% [seventh] 1% [end];
+    grid-template-rows: [row1-start] 100% [row1-end] auto;
+  }
+  #newsBlogWeatherGrid .currentNewsDisplay {
+    grid-column-start: second;
+    grid-column-end: span 1;
+    grid-row-start: row1;
+    grid-row-end: end;
+  }
+  #newsBlogWeatherGrid .allBlogDisplay {
+    grid-column-start: fourth;
+    grid-column-end: span 1;
+    grid-row-start: row1;
+    grid-row-end: end;
+  }#newsBlogWeatherGrid .weatherDivStyling {
+    grid-column-start: sixth;
+    grid-column-end: span 1;
+    grid-row-start: row1;
+    grid-row-end: end;
+  }
+  #weather {
+    padding-left: 0;
+  }
+  /* NEWS BLOG WEATHER GRID DISPLAY END  */
+  .btn-secondary{
     border-radius: 4px;
     padding: .375rem .75rem;
-}
-
-.btn{
+  }
+  
+  .btn{
     padding-top:5px;
     vertical-align:baseline;
-}
-
-#profileBtn{
+  }
+  
+  #profileBtn{
     float: left;
     width: 50px;
     height: 50px;
     background: url("images.png") no-repeat;
     background-size: 48px;
     border-radius: 25px;
-}
-
-#signOut{
+  }
+  
+  #signOut{
     border: 0px;
-}
-
-#getSaved{
+  }
+  
+  #getSaved{
     border: 0px;
-}
-
-#skylinepic{
-width: 100%;
-height: auto;
-}
-
-.round-image {
+  }
+  
+  #skylinepic{
+  width: 100%;
+  height: auto;
+  }
+  
+  .round-image {
     border-radius:50%;
     height: 100px;
     width: 100px;
-
-}
-
-#icon {
+  
+  }
+  
+  #icon {
     width: 50px;
     height: 50px
-}
-
-#weatherDivStyling{
-    padding-top: 100px;
-}
-.blog { height:100px;
-    width :100px;
-
-
-}
+  }
+  
+  
+  #weatherDivStyling{
+      padding-top: 100px;
+  }
+  .blog { height:100px;
+      width :100px;
+  
+  
+  }
+  
