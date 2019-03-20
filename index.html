@@ -6,12 +6,12 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
     <link rel= "stylesheet" href = "index.css"/>
   </head>
-  
+
   <!--navbar-->
   <body>
   <nav id="container">
-  
-  
+
+
   <div class="d-flex">
       <div class="dropdown mr-1">
         <button type="button" id="profileBtn" class="btn btn-secondary dropdown-toggle" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,20">
@@ -36,7 +36,7 @@
       </div>
   </div>
   </div>
-   
+
     <!-- Information for the sign in button -->
     <div class="dropdownIconLogIn">
           <button class="btn btn-secondary dropdown-toggle" type="button" id="signInMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sign In</button>
@@ -54,12 +54,12 @@
                </form>
            </div>
   </div>
-  
+
   <div class="dropdownIconSignUp">
           <button type="button" class=" btn btn-secondary dropdown-toggle" id="signUpMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Join</button>
-  
+
           <!-- Information for the Join button. -->
-  
+
           <div class="dropdown-menu" aria-labelledby="signUpMenu">
               <form class="px-4 py-3">
                   <div class="form-group">
@@ -76,15 +76,15 @@
       </div>
   </div>
   </nav>
-  
+
   <!-- Img Div -->
   <image id="skylinepic" src="skyline.jpeg"></image>
-  
+
   <div>
       <ul id="news">
       </ul>
   </div>
-  
+
   <!-- Blog Div -->
   <div>
     <ul id="blog">
@@ -104,33 +104,33 @@
         <input class="commentTextBox" placeholder="Add comment here"></input>
         <button onclick="submitComment('blog2',document.getElementById('blog2').getElementsByClassName('title')[0].innerHTML,document.getElementById('blog2').getElementsByClassName('commentTextBox')[0].value)">Submit</button>
       </li>
-  
+
     </ul>
   </div>
    <!-- Weather Div -->
-  
+
    <div>
         <ul id="weather">
         </ul>
       <div>
-  
+
       <div>
         <ul id="weatherNews">
         </ul>
       </div>
-  
+
       <div>
         <ul id="articlesUL">
         </ul>
       </div>
   </div>
-  
+
   <!-- Blog Entry -->
   <div id="blogEntry">
     Blog
   </div>
-  
-  
+
+
   <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase.js"></script>
   <script>
     // Initialize Firebase
@@ -144,12 +144,13 @@
     };
     firebase.initializeApp(config);
   </script>
-  
-  
+
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="main.js"></script>
+    <script src="storage.js"</script>
     <script src="classes.js"></script>
     </body>
     </html>
