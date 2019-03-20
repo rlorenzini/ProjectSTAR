@@ -218,11 +218,13 @@ fetch(localWeather)
 
 if (windDirection == null){
   let weatherBug = `
-<div><image id= "icon" src= http://openweathermap.org/img/w/${weatherItems.weather[0].icon}.png>
- ${weatherItems.name} Weather:<br>
-Temperature: ${tempeRound} °
- Wind  : ${windRound} Mph 
- Sunrise: ${sunrise} Sunset: ${sunset}
+<div>
+<image id= "icon" src= http://openweathermap.org/img/w/${weatherItems.weather[0].icon}.png>
+ ${weatherItems.name} Weather:
+ ${tempeRound} °<br>
+ Wind  : ${windRound} Mph <br>
+ Sunrise: ${sunrise} <br>
+  Sunset: ${sunset} 
 </div>`
 weather.innerHTML=weatherBug
 
@@ -232,9 +234,10 @@ else {
 let weatherBug = `
 <div><image id= "icon" src= http://openweathermap.org/img/w/${weatherItems.weather[0].icon}.png>
  ${weatherItems.name} Weather:<br>
-Temperature: ${tempeRound} °
- Wind  : ${windDirection} ${windRound} Mph 
- Sunrise: ${sunrise} Sunset: ${sunset}
+ ${tempeRound} °<br>
+ Wind  : ${windDirection} ${windRound} Mph <br>
+ Sunrise: ${sunrise} <br>
+ Sunset: ${sunset} 
 </div>`
 weather.innerHTML=weatherBug
 }
