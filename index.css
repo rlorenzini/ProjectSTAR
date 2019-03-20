@@ -11,7 +11,7 @@
     grid-row-start: row1;
     grid-row-end: end;
     align-self: stretch;
-  
+
   }
   #entirePageGrid .skylineDisplay {
     grid-column-start: first;
@@ -37,14 +37,14 @@
     position: fixed;
     width: 100%;
   }
-  
+
   #container .d-flex {
     grid-column-start: first;
     grid-column-end: span 1;
     grid-row-start: 1;
     grid-row-end: 1;
   }
-  
+
   #container .dropdownIconZip{
     grid-column-start: third;
     grid-column-end: span 1;
@@ -52,7 +52,7 @@
     grid-row-end: 1;
     justify-self: start;
   }
-  
+
   #container .dropdownIconLogIn {
     grid-column-start: fourth;
     grid-column-end: span 1;
@@ -97,12 +97,12 @@
     border-radius: 4px;
     padding: .375rem .75rem;
   }
-  
+
   .btn{
     padding-top:5px;
     vertical-align:baseline;
   }
-  
+
   #profileBtn{
     float: left;
     width: 50px;
@@ -111,39 +111,44 @@
     background-size: 48px;
     border-radius: 25px;
   }
-  
+
   #signOut{
     border: 0px;
   }
-  
+
   #getSaved{
     border: 0px;
   }
-  
+
   #skylinepic{
   width: 100%;
   height: auto;
   }
-  
+
   .round-image {
     border-radius:50%;
     height: 100px;
     width: 100px;
-  
+
   }
-  
+
   #icon {
     width: 50px;
     height: 50px
   }
-  
-  
+
+
   #weatherDivStyling{
       padding-top: 100px;
   }
   .blog { height:100px;
       width :100px;
-  
-  
+
+
   }
-  
+  /* Overriding bootstrap built-in styling */
+  @media (min-width: 576px) {
+  .container {
+    max-width: 100%;
+  }
+  }
