@@ -17,9 +17,15 @@ submitBtn.addEventListener("click",function(){
         .then(weatherItems=>{
         console.log(weatherItems.main)
         console.log(weatherItems)
-        let sunset = new Date(weatherItems.sys.sunset*1000)
-        let sunrise = new Date(weatherItems.sys.sunrise*1000)
+        let sunsetHMS = new Date(weatherItems.sys.sunset*1000)
+        let sunriseHMS = new Date(weatherItems.sys.sunrise*1000)
+        let sunrise = sunriseHMS.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}); 
+        let sunset = sunsetHMS.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}); 
         let windDirection = getDirection(weatherItems.wind.deg)
+        let windspeed= weatherItems.wind.speed
+        let WindRound= Math.round(windspeed)
+        let temperature =weatherItems.main.temp
+        let tempeRound = Math.round(temperature)
        //search inside the object in the array
         console.log(weatherItems.weather[0].main)
 
@@ -27,9 +33,9 @@ submitBtn.addEventListener("click",function(){
     
     let weatherBug = `
     <h3> Weather from ${weatherItems.name}:</h3>
-    <h4> Current Temperature: ${weatherItems.main.temp} Deg</h4>
-    <h4> Wind Speed : ${weatherItems.wind.speed} Mph;    Direction: ${windDirection}</h4>
-    <h4> Sunrise: ${sunrise.toLocaleTimeString()} Sunset: ${sunset.toLocaleTimeString()}</h4>
+    <h4> Current Temperature: ${tempeRound} Deg</h4>
+    <h4> Wind Speed : ${WindRound} Mph;    Direction: ${windDirection}</h4>
+    <h4> Sunrise: ${sunrise} Sunset: ${sunset}</h4>
     <image id="icon" src= http://openweathermap.org/img/w/${weatherItems.weather[0].icon}.png>
    
     `
@@ -94,6 +100,11 @@ function getDirection(angle) {
     return directions[Math.round(((angle %= 360) < 0 ? angle + 360 : angle) / 45) % 8];
      
 }
+
+
+var d = new Date();
+var localeTime = d.toLocaleTimeString();
+var localeTimeSansSeconds = localeTime.replace(/:(\d{2}) (?=[AP]M)/, " ");
 
 //console.log(getDirection(0))
 //console.log(getDirection(90))
