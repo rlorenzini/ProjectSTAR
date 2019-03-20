@@ -9,7 +9,13 @@
 
   <!--navbar-->
   <body>
-  <nav id="container">
+    <div id="entirePageGrid"> <!-- Makes a grid for nav grid and news/blog grid -->
+
+
+
+
+
+  <nav id="container" class="container"> <!-- Grid for navbar -->
 
 
   <div class="d-flex">
@@ -74,47 +80,48 @@
               </form>
           </div>
       </div>
-  </div>
   </nav>
-
-   <!-- Weather Div -->
-
-   <div id="weatherDivStyling">
-    <ul id="weather">
-    </ul>
-  <div>
-
+<!-- NOT BEING USED
   <div>
     <ul id="weatherNews">
     </ul>
-  </div>
-
+  </div> -->
+<!--
   <div>
     <ul id="articlesUL">
     </ul>
-  </div>
-</div>
+  </div> -->
 
   <!-- Img Div -->
+  <div id="skylineDisplay" class="skylineDisplay">
   <image id="skylinepic" src="skyline.jpeg"></image>
+</div>
 
+<div id="newsBlogWeatherGrid" class="newsBlogWeatherGrid">
 
+<div id="weatherDivStyling" class="weatherDivStyling">
+  <ul id="weather">
+  </ul>
+</div>
 
 <!-- News Div-->
-<div>
+<div id="currentNewsDisplay" class="currentNewsDisplay">
   <ul id="news">
   </ul>
 </div>
 
 <!-- Blog Div -->
-  <div>
+<span id="allBlogDisplay" class="allBlogDisplay">
+  <div id="blogDisplay" class="blogDisplay">
     <ul id="blog">
     </ul>
   </div>
   <!-- Blog Entry -->
-  <div id="blogEntry">
+  <div id="blogEntry" class="blogEntryDisplay">
   </div>
-
+</span>
+</div>
+</div>
 
   <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase.js"></script>
   <script>
