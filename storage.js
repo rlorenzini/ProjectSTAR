@@ -6,7 +6,7 @@ service firebase.storage {
   }
 }
 
-var ref= firebase.database().ref("Uploads");
+var ref= firebase.database().ref("uploads");
 var storage = firebase.storage();
 var pathReference = storage.ref('images/stars.jpg');
 pathReference.getDownloadURL().then(function(url) {

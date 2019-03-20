@@ -315,7 +315,7 @@ function displayBlogs() {
           return `<li>
                 <h3>${blog.blogTitle}</h3>
                 <img src = '${blog.blogImg}' />
-                <p>${blog.content}
+                <p>${blog.blogContent}</p>
                 </li>`
         }
     })
