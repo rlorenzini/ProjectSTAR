@@ -22,21 +22,7 @@
       </div>
     </div>
   </div>
-  <!--Information for the Zip button on navbar-->
-  <div class="dropdownIconZip">
-    <button id="zipcodedrop" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Change Zip</button>
-    <div>
-    <div class="dropdown-menu" aria-labelledby="zipcodedrop">
-    <form class="px-4 py-3">
-        <div class="form-group">
-          <label for="zipInput">Zip Code</label>
-          <input type="text" id= "zipInput" placeholder= "Enter Zip Code">
-        </div>
-        <button id= submitBtn>Enter</button>
-    </div>
-</div>
-</div>
- 
+
   <!-- Information for the sign in button -->
   <div class="dropdownIconLogIn">
         <button class="btn btn-secondary dropdown-toggle" type="button" id="signInMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sign In</button>
@@ -88,23 +74,6 @@
 <!-- Blog Div -->
 <div>
   <ul id="blog">
-    <li id="blog1">
-      <H3 class="title">Title</h3>
-      <p>This is a blog</p>
-      <ul class="comments">
-      </ul>
-      <input class="commentTextBox" placeholder="Add comment here"></input>
-      <button onclick="submitComment('blog1',document.getElementById('blog1').getElementsByClassName('title')[0].innerHTML,document.getElementById('blog1').getElementsByClassName('commentTextBox')[0].value)">Submit</button>
-    </li>
-    <li id="blog2">
-      <H3 class="title">Fire</h3>
-      <p>There is a fire in Deer Park!</p>
-      <ul class="comments">
-      </ul>
-      <input class="commentTextBox" placeholder="Add comment here"></input>
-      <button onclick="submitComment('blog2',document.getElementById('blog2').getElementsByClassName('title')[0].innerHTML,document.getElementById('blog2').getElementsByClassName('commentTextBox')[0].value)">Submit</button>
-    </li>
-
   </ul>
 </div>
  <!-- Weather Div -->
@@ -150,6 +119,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   <script src="main.js"></script>
+  <script src="storage.js"></script>
   <script src="classes.js"></script>
   </body>
   </html>

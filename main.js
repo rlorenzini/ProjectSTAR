@@ -297,6 +297,30 @@ function blogEntry () {
   }
 }
 
+function getBlogs() {
+database.ref("blogs")
+.on("value",function(snapshot){
+      let blog = new Blog(snapshot.key,snapshot.val().user,snapshot.val().blogID,snapshot.val().blogTitle,snapshot.val().blogImg,snapshot.val().blogContent)
+      blogs.push(blog)
+});
+setTimeout(function(){
+  displayBlogs()
+}, 3000);
+}
+
+function displayBlogs() {
+      let blogsLI = blogs.map((blog) => {
+        console.log(blogs);
+        if (blog.blogTitle != null) {
+          return `<li>
+                <h3>${blog.blogTitle}</h3>
+                <img src = '${blog.blogImg}' />
+                <p>${blog.content}
+                </li>`
+        }
+    })
+    document.getElementById('blog').innerHTML = blogsLI.join("")
+  }
 
 
 
@@ -316,5 +340,6 @@ function getDirection(angle) {
    return directions[Math.round(((angle %= 360) < 0 ? angle + 360 : angle) / 45) % 8];
 }
 
+getBlogs()
 getComments()
 getUID()
