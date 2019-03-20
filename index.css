@@ -63,15 +63,6 @@
 #getSaved{
     border: 0px;
 }
-/* note to whoever: this will need replaced. it is modifying every img right now.  */
-/* steve says i dont use this now using round image and icon for my image css*/
-/*img {
-    
-    width: 100px;
-   height: 100px
-
-}*/
-/* check above comment  */
 
 #skylinepic{
 width: 100%;
@@ -88,4 +79,8 @@ height: auto;
 #icon {
     width: 50px;
     height: 50px
+}
+
+#weatherDivStyling{
+    padding-top: 100px;
 }

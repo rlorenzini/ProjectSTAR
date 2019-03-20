@@ -211,12 +211,12 @@ fetch(localWeather)
     let windDirection = getDirection(weatherItems.wind.deg)
 
 let weatherBug = `
-<h3> Weather from ${weatherItems.name}:</h3>
-<h4> Current Temperature: ${weatherItems.main.temp} Deg</h4>
-<h4> Wind Speed : ${weatherItems.wind.speed} Mph;    Direction: ${windDirection}</h4>
-<h4> Sunrise: ${sunrise.toLocaleTimeString()} Sunset: ${sunset.toLocaleTimeString()}</h4>
-<image id= "icon" src= http://openweathermap.org/img/w/${weatherItems.weather[0].icon}.png>
-`
+<div><image id= "icon" src= http://openweathermap.org/img/w/${weatherItems.weather[0].icon}.png>
+Weather from ${weatherItems.name}:<br>
+ Current Temperature: ${weatherItems.main.temp} Deg
+ Wind Speed : ${weatherItems.wind.speed} Mph;    Direction: ${windDirection}
+ Sunrise: ${sunrise.toLocaleTimeString()} Sunset: ${sunset.toLocaleTimeString()}
+</div>`
 weather.innerHTML=weatherBug
 
 let localNews= `https://gnews.io/api/v2/?q=${weatherItems.name}&token=114071df888d1c4880c2bff07c8ffc33`
