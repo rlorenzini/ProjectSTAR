@@ -370,7 +370,7 @@ function displayBlogs() {
         if (blog.blogTitle != null) {
           return `<li>
                 <h3>${blog.blogTitle}</h3>
-                <img src = '${blog.blogImg}' />
+                <img class = "blog" src = '${blog.blogImg}' />
                 <p>${blog.blogContent}</p>
                 </li>`
         }

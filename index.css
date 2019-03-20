@@ -137,17 +137,13 @@ height: auto;
   height: 50px
 }
 
-/* #weatherDivStyling{
-  padding-top: 100px;
-} */
 
-#blog img {
- height: 100px;
- width: auto;
+#weatherDivStyling{
+    padding-top: 100px;
 }
-/* Overriding bootstrap built-in styling */
-@media (min-width: 576px) {
-.container {
-  max-width: 100%;
+.blog { height:100px;
+    width :100px;
+
+
 }
-}
+
