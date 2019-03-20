@@ -102,7 +102,7 @@ function getUID() {
     var name, email, photoUrl, uid, emailVerified;
 
     if (user != null) {
-      if (user.uid == "78I5hgvWUzVGLpfNUOzEOyTlH8F3") {
+      if (user.uid == "78I5hgvWUzVGLpfNUOzEOyTlH8F3" || "FCIAB6mUByZ0w7EHOswbpBxk1n32" || "WoascjVSpNYYB9pFUgbNGvuswor1") {
         admin = "True"
         blogEntry()
         return user.uid
@@ -209,8 +209,8 @@ fetch(localWeather)
     .then(weatherItems=>{
       let sunsetHMS = new Date(weatherItems.sys.sunset*1000)
       let sunriseHMS = new Date(weatherItems.sys.sunrise*1000)
-      let sunrise = sunriseHMS.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}); 
-      let sunset = sunsetHMS.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}); 
+      let sunrise = sunriseHMS.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+      let sunset = sunsetHMS.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
       let windDirection = getDirection(weatherItems.wind.deg)
       let windspeed= weatherItems.wind.speed
       let windRound= Math.round(windspeed)
@@ -225,7 +225,7 @@ if (windDirection == null){
  ${tempeRound} °<br>
  Wind  : ${windRound} Mph <br>
  Sunrise: ${sunrise} <br>
-  Sunset: ${sunset} 
+  Sunset: ${sunset}
 </div>`
 weather.innerHTML=weatherBug
 
@@ -238,7 +238,7 @@ let weatherBug = `
  ${tempeRound} °<br>
  Wind  : ${windDirection} ${windRound} Mph <br>
  Sunrise: ${sunrise} <br>
- Sunset: ${sunset} 
+ Sunset: ${sunset}
 </div>`
 weather.innerHTML=weatherBug
 }
