@@ -181,21 +181,20 @@ setTimeout(function(){
 }, 3000);
 }
 
-function displayComments() {
-  let elements = document.getElementsByClassName("title")
-    for (var i = 0; i < elements.length; i++) {
-      let blog = elements[i].parentNode.id
+function displayComments(blogKey) {
+  // let elements = document.getElementsByClassName("title")
+  //   for (var i = 0; i < elements.length; i++) {
+  //     let blog = elements[i].parentNode.id
       let commentsLI = comments.map((comment) => {
-        if (comment.blog == blog) {
+        if (comment.blog == blogKey) {
           return `<li>
                 ${comment.comment}
                 </li>`
       } else {
       }
     })
-    document.getElementById(blog).getElementsByClassName('comments')[0].innerHTML = commentsLI.join("")
+    document.getElementById(blogKey).getElementsByClassName('comments')[0].innerHTML = commentsLI.join("")
   }
-}
 
 submitBtn.addEventListener("click",function(){
    zippers= zipInput.value
@@ -339,7 +338,7 @@ let contentEntry = document.getElementById('contentEntry').value
 let blogsRef = database.ref("blogs")
 let blogRef = blogsRef.push({
   user: userID,
-  blogID: "blog2",
+  blogID: titleEntry,
   blogTitle: titleEntry,
   blogImg: imageURL,
   blogContent: contentEntry
@@ -361,10 +360,14 @@ setTimeout(function(){
 function displayBlogs() {
       let blogsLI = blogs.map((blog) => {
         if (blog.blogTitle != null) {
-          return `<li>
-                <h3>${blog.blogTitle}</h3>
+          return `<li id='${blog.key}'>
+                <h3 class="title">${blog.blogTitle}</h3>
                 <img class = "blog" src = '${blog.blogImg}' />
                 <p>${blog.blogContent}</p>
+                <ul class="comments"></ul>
+                <button type="button" id="displayComments" onclick=displayComments('${blog.key}')>Display Comments</button>
+                <input class="commentTextBox" placeholder="Add comment here"></input>
+                <button onclick="submitComment('${blog.key}',document.getElementById('${blog.key}').getElementsByClassName('title')[0].innerHTML,document.getElementById('${blog.key}').getElementsByClassName('commentTextBox')[0].value)">Submit</button>
                 </li>`
         }
     })
@@ -377,7 +380,6 @@ function getDirection(angle) {
 }
 
 getBlogs()
-getComments()
 
 setTimeout(function(){
   getUID()
