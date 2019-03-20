@@ -12,6 +12,7 @@ let news = document.getElementById("news")
 let submitBtn = document.getElementById("submitBtn")
 let zipInput = document.getElementById("zipInput")
 let zippers = 77002
+let imageURL = ""
 
 document.getElementById('blogEntry').style.display = "none";
 
@@ -274,7 +275,6 @@ function blogEntry () {
     document.getElementById('blogEntry').style.display = "block";
     let form = document.createElement("form")
     form.setAttribute('method',"post")
-    // form.setAttribute('action',"submit.php");
 
     let title = document.createElement("input")
     title.setAttribute('type',"text")
@@ -284,6 +284,13 @@ function blogEntry () {
     let image = document.createElement("input")
     image.setAttribute('type',"file")
     image.setAttribute('id', "imageEntry")
+    image.setAttribute('value','upload')
+
+    let progress = document.createElement("progress")
+    progress.setAttribute('value',"0")
+    progress.setAttribute('max',"100")
+    progress.setAttribute('id',"uploader")
+    progress.innerHTML = "0%"
 
     let content = document.createElement("textarea")
     content.setAttribute('cols',"35")
@@ -297,27 +304,53 @@ function blogEntry () {
 
     form.appendChild(title)
     form.appendChild(image)
+    form.appendChild(progress)
     form.appendChild(content)
     form.appendChild(blogEntryBtn)
 
     document.getElementById('blogEntry').appendChild(form);
 
-    blogEntryBtn.addEventListener("click",function(){
-    let userID = getUID()
-    let titleEntry = document.getElementById('titleEntry').value
-    let imageEntry = document.getElementById('imageEntry').value
-    let contentEntry = document.getElementById('contentEntry').value
-    let blogsRef = database.ref("blogs")
-    console.log(titleEntry);
-    let blogRef = blogsRef.push({
-      user: userID,
-      blogID: "blog3",
-      blogTitle: titleEntry,
-      blogImg: imageEntry,
-      blogContent: contentEntry
-    })
-    })
-  }
+
+
+setTimeout(function() {
+  imageEntry.addEventListener('change', function(e) {
+    var file = e.target.files[0]
+    var storageRef = firebase.storage().ref('images/' + file.name)
+    var task = storageRef.put(file)
+    task.on('state_changed',
+      function progress(snapshot) {
+        var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+        uploader.value = percentage
+      },
+      function error(err) {
+      },
+      function complete() {
+        var imageBucket = firebase.storage().ref('images/' + file.name);
+        imageBucket.getDownloadURL().then(function(url){
+          imageURL = url
+        })
+      }
+    )
+  })
+},3000)
+
+
+
+blogEntryBtn.addEventListener("click",function(){
+let userID = getUID()
+let titleEntry = document.getElementById('titleEntry').value
+let contentEntry = document.getElementById('contentEntry').value
+let blogsRef = database.ref("blogs")
+console.log(titleEntry);
+let blogRef = blogsRef.push({
+  user: userID,
+  blogID: "blog2",
+  blogTitle: titleEntry,
+  blogImg: imageURL,
+  blogContent: contentEntry
+})
+})
+}
 }
 
 function getBlogs() {
@@ -344,19 +377,6 @@ function displayBlogs() {
     })
     document.getElementById('blog').innerHTML = blogsLI.join("")
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 function getDirection(angle) {
    let directions = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'];
