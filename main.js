@@ -207,18 +207,41 @@ let localWeather= `https://api.openweathermap.org/data/2.5/weather?zip=${zippers
 fetch(localWeather)
 .then(response=>response.json())
     .then(weatherItems=>{
-    let sunset = new Date(weatherItems.sys.sunset*1000)
-    let sunrise = new Date(weatherItems.sys.sunrise*1000)
-    let windDirection = getDirection(weatherItems.wind.deg)
+      let sunsetHMS = new Date(weatherItems.sys.sunset*1000)
+      let sunriseHMS = new Date(weatherItems.sys.sunrise*1000)
+      let sunrise = sunriseHMS.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}); 
+      let sunset = sunsetHMS.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}); 
+      let windDirection = getDirection(weatherItems.wind.deg)
+      let windspeed= weatherItems.wind.speed
+      let windRound= Math.round(windspeed)
+      let temperature =weatherItems.main.temp
+      let tempeRound = Math.round(temperature)
+
+if (windDirection == null){
+  let weatherBug = `
+<div>
+<image id= "icon" src= http://openweathermap.org/img/w/${weatherItems.weather[0].icon}.png>
+ ${weatherItems.name} Weather:
+ ${tempeRound} °<br>
+ Wind  : ${windRound} Mph <br>
+ Sunrise: ${sunrise} <br>
+  Sunset: ${sunset} 
+</div>`
+weather.innerHTML=weatherBug
+
+}
+else {
 
 let weatherBug = `
 <div><image id= "icon" src= http://openweathermap.org/img/w/${weatherItems.weather[0].icon}.png>
-Weather from ${weatherItems.name}:<br>
- Current Temperature: ${weatherItems.main.temp} Deg
- Wind Speed : ${weatherItems.wind.speed} Mph;    Direction: ${windDirection}
- Sunrise: ${sunrise.toLocaleTimeString()} Sunset: ${sunset.toLocaleTimeString()}
+ ${weatherItems.name} Weather:<br>
+ ${tempeRound} °<br>
+ Wind  : ${windDirection} ${windRound} Mph <br>
+ Sunrise: ${sunrise} <br>
+ Sunset: ${sunset} 
 </div>`
 weather.innerHTML=weatherBug
+}
 
 let localNews= `https://gnews.io/api/v2/?q=${weatherItems.name}&token=114071df888d1c4880c2bff07c8ffc33`
 fetch(localNews)
@@ -356,7 +379,7 @@ function displayBlogs() {
   }
 
 function getDirection(angle) {
-   let directions = ['North', 'North-East', 'East', 'South-East', 'South', 'South-West', 'West', 'North-West'];
+   let directions = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'];
    return directions[Math.round(((angle %= 360) < 0 ? angle + 360 : angle) / 45) % 8];
 }
 
