@@ -310,8 +310,6 @@ function blogEntry () {
 
     document.getElementById('blogEntry').appendChild(form);
 
-
-
 setTimeout(function() {
   imageEntry.addEventListener('change', function(e) {
     var file = e.target.files[0]
@@ -334,14 +332,11 @@ setTimeout(function() {
   })
 },3000)
 
-
-
 blogEntryBtn.addEventListener("click",function(){
 let userID = getUID()
 let titleEntry = document.getElementById('titleEntry').value
 let contentEntry = document.getElementById('contentEntry').value
 let blogsRef = database.ref("blogs")
-console.log(titleEntry);
 let blogRef = blogsRef.push({
   user: userID,
   blogID: "blog2",
@@ -350,8 +345,7 @@ let blogRef = blogsRef.push({
   blogContent: contentEntry
 })
 })
-}
-}
+}}
 
 function getBlogs() {
 database.ref("blogs")
@@ -366,7 +360,6 @@ setTimeout(function(){
 
 function displayBlogs() {
       let blogsLI = blogs.map((blog) => {
-        console.log(blogs);
         if (blog.blogTitle != null) {
           return `<li>
                 <h3>${blog.blogTitle}</h3>
@@ -385,4 +378,7 @@ function getDirection(angle) {
 
 getBlogs()
 getComments()
-getUID()
+
+setTimeout(function(){
+  getUID()
+}, 3000);
