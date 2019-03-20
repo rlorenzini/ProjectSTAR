@@ -98,39 +98,21 @@
   <!-- Img Div -->
   <image id="skylinepic" src="skyline.jpeg"></image>
 
- 
+
 
 <!-- News Div-->
 <div>
   <ul id="news">
   </ul>
 </div>
-  
+
 <!-- Blog Div -->
   <div>
     <ul id="blog">
-      <li id="blog1">
-        <H3 class="title">Title</h3>
-        <p>This is a blog</p>
-        <ul class="comments">
-        </ul>
-        <input class="commentTextBox" placeholder="Add comment here"></input>
-        <button onclick="submitComment('blog1',document.getElementById('blog1').getElementsByClassName('title')[0].innerHTML,document.getElementById('blog1').getElementsByClassName('commentTextBox')[0].value)">Submit</button>
-      </li>
-      <li id="blog2">
-        <H3 class="title">Fire</h3>
-        <p>There is a fire in Deer Park!</p>
-        <ul class="comments">
-        </ul>
-        <input class="commentTextBox" placeholder="Add comment here"></input>
-        <button onclick="submitComment('blog2',document.getElementById('blog2').getElementsByClassName('title')[0].innerHTML,document.getElementById('blog2').getElementsByClassName('commentTextBox')[0].value)">Submit</button>
-      </li>
-
     </ul>
   </div>
   <!-- Blog Entry -->
   <div id="blogEntry">
-    Blog
   </div>
 
 
@@ -142,7 +124,7 @@
       authDomain: "houstonnewsweather.firebaseapp.com",
       databaseURL: "https://houstonnewsweather.firebaseio.com",
       projectId: "houstonnewsweather",
-      storageBucket: "",
+      storageBucket: "gs://houstonnewsweather.appspot.com/",
       messagingSenderId: "851812061365"
     };
     firebase.initializeApp(config);
