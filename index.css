@@ -18,6 +18,7 @@
   grid-column-end: span 1;
   grid-row-start: row2;
   grid-row-end: span 1;
+  /* padding-top: 1%; */
 }.blog { height:100px;
     width :100px;
 }
@@ -40,7 +41,7 @@
   grid-template-columns: [first] 50px [second] auto [third] 126.15px [fourth] 90px [fifth] 73px [end];
   grid-template-rows: [row1-start] 25% [row1-end] auto;
   background-color: black;
-  padding: 1%;
+  padding: 0.5rem;
   text-align: right;
   position: fixed;
   width: 100%;
@@ -77,7 +78,7 @@
 /* NEWS BLOG WEATHER GRID DISPLAY START  */
 #newsBlogWeatherGrid {
   display: grid;
-  grid-template-columns: [first] 2% [second] 37% [third] 2% [fourth] 37% [fifth] 2% [sixth] 19% [seventh] 1% [end];
+  grid-template-columns: [first] 5% [second] 42.5% [third] 5% [fourth] 42.5% [fifth] 5% [end];
   grid-template-rows: [row1-start] 100% [row1-end] auto;
 }
 #newsBlogWeatherGrid .currentNewsDisplay {
