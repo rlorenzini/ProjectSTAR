@@ -143,12 +143,14 @@ function getSavedArticles() {
       }
     })
     articlesUL.innerHTML = articlesLI.join("")
-  }
+}
 
 function deleteArticle(articleKey) {
   database.ref("articles").child(articleKey).remove()
   getSavedArticles()
 }
+  
+
 
 function submitComment (blog, title, comment) {
   let userID = getUID()
@@ -384,3 +386,5 @@ getBlogs()
 setTimeout(function(){
   getUID()
 }, 3000);
+
+
