@@ -149,7 +149,7 @@ function deleteArticle(articleKey) {
   database.ref("articles").child(articleKey).remove()
   getSavedArticles()
 }
-  
+
 
 
 function submitComment (blog, title, comment) {
@@ -220,13 +220,12 @@ fetch(localWeather)
 
 if (windDirection == null){
   let weatherBug = `
-<div>
+<div class="row">
 <image id= "icon" src= http://openweathermap.org/img/w/${weatherItems.weather[0].icon}.png>
- ${weatherItems.name} Weather: ||
- ${tempeRound} ° ||
- Wind  : ${windRound} Mph ||
- Sunrise: ${sunrise} ||
-  Sunset: ${sunset} ||
+ <p>${weatherItems.name} Weather: ${tempeRound} ° </p>
+ <p>Wind  : ${windRound} Mph </p>
+ <p>Sunrise: ${sunrise} </p>
+ <p>Sunset: ${sunset} </p>
 </div>`
 weather.innerHTML=weatherBug
 
@@ -234,12 +233,12 @@ weather.innerHTML=weatherBug
 else {
 
 let weatherBug = `
-<div><image id= "icon" src= http://openweathermap.org/img/w/${weatherItems.weather[0].icon}.png>
- ${weatherItems.name} Weather:
- ${tempeRound} ° ||
- Wind  : ${windDirection} ${windRound} Mph ||
- Sunrise: ${sunrise} ||
- Sunset: ${sunset} ||
+<div class="row">
+<image id= "icon" src= http://openweathermap.org/img/w/${weatherItems.weather[0].icon}.png>
+ <p>${weatherItems.name} Weather: ${tempeRound} °</p>
+ <p>Wind  : ${windDirection} ${windRound} Mph </p>
+ <p>Sunrise: ${sunrise} </p>
+ <p>Sunset: ${sunset} </p>
 </div>`
 weather.innerHTML=weatherBug
 }
@@ -386,5 +385,3 @@ getBlogs()
 setTimeout(function(){
   getUID()
 }, 3000);
-
-
