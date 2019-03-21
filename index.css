@@ -134,7 +134,20 @@
   border-radius:50%;
   height: 100px;
   width: 100px;
-
+}
+.row {
+  padding-left: 1.5rem;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.row p {
+  padding-top: 10px;
+  padding-bottom: 15px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border-right: 1px solid black;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 
 #icon {
