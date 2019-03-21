@@ -155,6 +155,38 @@
   height: 50px
 }
 
+.cardScroll {
+  flex: 0 0 auto;
+  margin-bottom: 3px;
+  border: 2px solid $red;
+  width: 100%;
+  height: auto;
+  background: white;
+  color: black;
+  font-size:0.8em;
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+
+.cardScroll img {
+  vertical-align: middle;
+}
+
+.cardBlog {
+  flex: 0 0 auto;
+  margin-bottom: 3px;
+  border: 2px solid $red;
+  width: 100%;
+  height: auto;
+  background: white;
+  color: black;
+  font-size:0.8em;
+  text-align: center;
+  overflow-x: hidden;
+  vertical-align: middle;
+}
+
 @media (max-width: 576px) {
 #container{
   display: grid;
@@ -165,4 +197,51 @@
   text-align: right;
   position: fixed;
   width: 100%;
+}
+
+.scrolling-wrapper-flexbox {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  margin-bottom: 20px;
+  width: 100%;
+  -webkit-overflow-scrolling: touch;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.cardScroll {
+  flex: 0 0 auto;
+  margin-right: 3px;
+  border: 2px solid $red;
+  width: 100px;
+  height: 150px;
+  background: black;
+  color: white;
+  font-size:0.8em;
+  text-align: center;
+}
+
+.cardBlog {
+  width: 300px;
+}
+
+#newsBlogWeatherGrid {
+  display: grid;
+  grid-template-columns: [first] 2% [second] 37% [third] 2% [fourth] 37% [fifth] 2% [sixth] 19% [seventh] 1% [end];
+  grid-template-rows: [first] 12.1rem [second] 1rem  [third] 25rem [end];
+}
+#newsBlogWeatherGrid .currentNewsDisplay {
+  grid-column-start: second;
+  grid-column-end: span 5;
+  grid-row-start: first;
+  grid-row-end: span 1;
+}
+#newsBlogWeatherGrid .allBlogDisplay {
+  grid-column-start: second;
+  grid-column-end: span 5;
+  grid-row-start: third;
+  grid-row-end: span 1;
+}
 }

@@ -252,16 +252,24 @@ fetch(localNews)
 let newsID = newsItems.articles.map(function(news){
     if (news.image ==""){
         return `
-        <li>
-        <a href = ${news.link}>${news.title}</a></li>
-        <button onclick="saveArticle('${news.title}','${news.link}')">Save</button>
+        <div class="card cardScroll">
+        <a href = ${news.link}>${news.title}</a>
+        </div>
         `}
     else {
     return `
-    <li>
-    <img class= "round-image" src = ${news.image}>
-    <a href = ${news.link}>${news.title}</a></li>
-    <button onclick="saveArticle('${news.title}','${news.link}')">Save</button>
+    <div class="card cardScroll">
+    <div class="row">
+    <div class="col-md-4">
+      <img class="blog round-image" src='${news.image}' />
+    </div>
+    <div class="col-md-8 px-1">
+      <div class="card-block px-1">
+        <a href=${news.link}><p class="card-title title">${news.title}</p>
+      </div>
+    </div>
+    </div>
+    </div>
           `
     }
 })
@@ -361,15 +369,25 @@ setTimeout(function(){
 function displayBlogs() {
       let blogsLI = blogs.map((blog) => {
         if (blog.blogTitle != null) {
-          return `<li id='${blog.key}'>
-                <h3 class="title">${blog.blogTitle}</h3>
-                <img class = "blog" src = '${blog.blogImg}' />
-                <p>${blog.blogContent}</p>
-                <ul class="comments"></ul>
-                <button type="button" id="displayComments" onclick=displayComments('${blog.key}')>Display Comments</button>
-                <input class="commentTextBox" placeholder="Add comment here"></input>
-                <button onclick="submitComment('${blog.key}',document.getElementById('${blog.key}').getElementsByClassName('title')[0].innerHTML,document.getElementById('${blog.key}').getElementsByClassName('commentTextBox')[0].value)">Submit</button>
-                </li>`
+          return `<div class="card cardBlog">
+          <div id='${blog.key}' class="row">
+          <div class="col-md-4">
+            <img class="blog round-image" src='${blog.blogImg}' />
+          </div>
+          <div class="col-md-8 px-3">
+            <div class="card-block px-3">
+              <h4 class="card-title title">${blog.blogTitle}</h4>
+            </div>
+          </div>
+          </div>
+          <p class="card-text">${blog.blogContent}</p>
+          <input class="commentTextBox" placeholder="Add comment here"></input>
+          <div>
+          <button class="btn btn-primary" type="button" id="displayComments" onclick=displayComments('${blog.key}')>Display Comments</button>
+          <button class="btn btn-primary" onclick="submitComment('${blog.key}',document.getElementById('${blog.key}').getElementsByClassName('title')[0].innerHTML,document.getElementById('${blog.key}').getElementsByClassName('commentTextBox')[0].value)">Submit Comment</button>
+          </div>
+          <ul class="comments"></ul>
+          </div>`
         }
     })
     document.getElementById('blog').innerHTML = blogsLI.join("")
