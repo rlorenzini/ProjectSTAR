@@ -243,35 +243,35 @@ let weatherBug = `
 weather.innerHTML=weatherBug
 }
 
-// let localNews= `https://gnews.io/api/v2/?q=${weatherItems.name}&token=114071df888d1c4880c2bff07c8ffc33`
+let localNews= `https://gnews.io/api/v2/?q=${weatherItems.name}&token=114071df888d1c4880c2bff07c8ffc33`
 fetch(localNews)
 .then(response=>response.json())
 .then(function(json){ return json
 })
 .then (function(newsItems){
 let newsID = newsItems.articles.map(function(news){
-    if (news.image ==""){
+    // if (news.image ==""){
         return `
         <div class="card cardScroll">
         <a href = ${news.link}>${news.title}</a>
         </div>
-        `}
-    else {
-    return `
-    <div class="card cardScroll">
-    <div class="row">
-    <div class="col-md-4">
-      <img class="blog round-image" src='${news.image}' />
-    </div>
-    <div class="col-md-8 px-1">
-      <div class="card-block px-1">
-        <a href=${news.link}><p class="card-title title">${news.title}</p>
-      </div>
-    </div>
-    </div>
-    </div>
-          `
-    }
+        `
+    // else {
+    // return `
+    // <div class="card cardScroll">
+    // <div class="row">
+    // <div class="col-md-4">
+    //   <img class="blog round-image" src='${news.image}' />
+    // </div>
+    // <div class="col-md-8 px-1">
+    //   <div class="card-block px-1">
+    //     <a href=${news.link}><span class="card-title title">${news.title}</span>
+    //   </div>
+    // </div>
+    // </div>
+    // </div>
+    //       `
+    // }
 })
 news.innerHTML=newsID.join("")
 })
@@ -369,8 +369,8 @@ setTimeout(function(){
 function displayBlogs() {
       let blogsLI = blogs.map((blog) => {
         if (blog.blogTitle != null) {
-          return `<div class="card cardBlog">
-          <div id='${blog.key}' class="row">
+          return `<div id='${blog.key}' class="card cardBlog">
+          <div class="row">
           <div class="col-md-4">
             <img class="blog round-image" src='${blog.blogImg}' />
           </div>
