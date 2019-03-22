@@ -82,7 +82,7 @@
   grid-template-columns: [first] 5% [second] 35% [third] 5% [fourth] 50% [fifth] 5% [end];
   grid-template-rows: [row1-start] 100% [row1-end] auto;
 }
-#newsBlogWeatherGrid .containerForNews { /* =========================================================== */
+#newsBlogWeatherGrid .containerForNews {
   grid-column-start: second;
   grid-column-end: span 1;
   grid-row-start: row1;
@@ -242,13 +242,16 @@
   list-style-type: none;
 }
 
-input {
+input, textarea {
   border-width: thin;
   border-color: #f2f2f2;
   width: 90%;
   align-self: center;
 }
 
+#titleEntry {
+  margin-bottom: 5px;
+}
 #titleSpace {
   z-index: 1;
 }
@@ -268,7 +271,6 @@ input {
   margin: 5px;
 }
 
-/* mobile for news and blog display ================================================================================== */
 @media (max-width: 576px) {
 #container{
   display: grid;
@@ -299,8 +301,8 @@ input {
   border: 2px solid red;
   width: 130px;
   height: 300px;
-  background: black;
-  color: white;
+  background: white;
+  color: black;
   font-size:0.8em;
   text-align: center;
   z-index: 0;
@@ -337,10 +339,19 @@ input {
   grid-row-start: third;
   grid-row-end: span 1;
 }
+
 #newsBlogWeatherGrid .responsiveSavedArticlesDisplay {
   grid-column-start: second;
   grid-column-end: span 1;
   grid-row-start: second;
   grid-row-end: span 1;
+  }
+
+.hideContent{
+  display: none;
 }
+
+.row p{
+  border-right: none;
 }
+

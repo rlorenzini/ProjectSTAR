@@ -225,9 +225,9 @@ if (windDirection == null){
 <div class="row">
 <image id= "icon" src= http://openweathermap.org/img/w/${weatherItems.weather[0].icon}.png>
  <p>${weatherItems.name} Weather: ${tempeRound} ° </p>
- <p>Wind  : ${windRound} Mph </p>
- <p>Sunrise: ${sunrise} </p>
- <p>Sunset: ${sunset} </p>
+ <p class="hideContent">Wind  : ${windRound} Mph </p>
+ <p class="hideContent">Sunrise: ${sunrise} </p>
+ <p class="hideContent">Sunset: ${sunset} </p>
 </div>`
 weather.innerHTML=weatherBug
 
@@ -238,9 +238,9 @@ let weatherBug = `
 <div class="row">
 <image id= "icon" src= http://openweathermap.org/img/w/${weatherItems.weather[0].icon}.png>
  <p>${weatherItems.name} Weather: ${tempeRound} °</p>
- <p>Wind  : ${windDirection} ${windRound} Mph </p>
- <p>Sunrise: ${sunrise} </p>
- <p>Sunset: ${sunset} </p>
+ <p class="hideContent">Wind  : ${windDirection} ${windRound} Mph </p>
+ <p class="hideContent">Sunrise: ${sunrise} </p>
+ <p class="hideContent">Sunset: ${sunset} </p>
 </div>`
 weather.innerHTML=weatherBug
 }
@@ -269,42 +269,19 @@ news.innerHTML=newsID.join("")
 function blogEntry () {
   if (admin == "True") {
     document.getElementById('blogEntry').style.display = "block";
-    let form = document.createElement("form")
-    form.setAttribute('method',"post")
 
-    let title = document.createElement("input")
-    title.setAttribute('type',"text")
-    title.setAttribute('id', "titleEntry")
-    title.setAttribute('placeholder',"Title")
+    let blogEntryForm = `<h3>Blog Entry</h3>
+    <form method="post">
+    <input type="text" id="titleEntry" placeholder="Title">
+    <input type="file" id="imageEntry" value="upload">
+    <progress value="0" max="100" id="uploader">0%</progress>
+    <textarea cols="35" rows="5" id="contentEntry"></textarea>
+    <button id="blogEntryBtn" type="button">Submit</button>
+    </form>`
 
-    let image = document.createElement("input")
-    image.setAttribute('type',"file")
-    image.setAttribute('id', "imageEntry")
-    image.setAttribute('value','upload')
+    document.getElementById('blogEntry').innerHTML = blogEntryForm
 
-    let progress = document.createElement("progress")
-    progress.setAttribute('value',"0")
-    progress.setAttribute('max',"100")
-    progress.setAttribute('id',"uploader")
-    progress.innerHTML = "0%"
 
-    let content = document.createElement("textarea")
-    content.setAttribute('cols',"35")
-    content.setAttribute('rows',"5")
-    content.setAttribute('id',"contentEntry")
-
-    let blogEntryBtn = document.createElement("button")
-    blogEntryBtn.setAttribute('id',"blogEntryBtn")
-    blogEntryBtn.setAttribute('type',"button")
-    blogEntryBtn.innerHTML = "Submit"
-
-    form.appendChild(title)
-    form.appendChild(image)
-    form.appendChild(progress)
-    form.appendChild(content)
-    form.appendChild(blogEntryBtn)
-
-    document.getElementById('blogEntry').appendChild(form);
 
 setTimeout(function() {
   imageEntry.addEventListener('change', function(e) {
