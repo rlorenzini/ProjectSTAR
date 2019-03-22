@@ -155,8 +155,9 @@
   width: 50px;
   height: 50px
 }
-
-.cardScroll {
+@media (max-width: 480px){
+cardScroll {
+  
   flex: 0 0 auto;
   margin-bottom: 3px;
   border: 2px solid gray;
@@ -170,12 +171,30 @@
   align-items: center;
   z-index: 0;
 }
-
+}
+@media (max-width: 480px){
+.cardScroll {
+  position: relative;
+  flex: 0 0 auto;
+  margin-bottom: 3px;
+  border: 2px solid gray;
+  width: 100%;
+  height: auto;
+  background: white;
+  color: black;
+  font-size:0.8em;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  z-index: 0;
+}
+}
 .cardScroll img {
   vertical-align: middle;
 }
 
 .cardBlog {
+
   flex: 0 0 auto;
   margin-bottom: 3px;
   border: 2px solid gray;
@@ -202,11 +221,28 @@
   width: 70%;
   float: left;
   display: inline-block;
+
 }
+
+@media (max-width: 480px){
+  #deleteSavedArticleButton {
+    float: none;
+    width: 60%;
+    display: flex;
+    background-color: blue;
+    position:absolute;
+    bottom: 10px;
+    right:25%
+  
+  }
+}
+@media (min-width: 481px){
 #deleteSavedArticleButton {
-  float: left;
+  float: right;
   width: 30%;
   display: inline-block;
+  background-color: blue;
+}
 }
 /* Local News Articles Display */
 .newsLink {
@@ -214,10 +250,27 @@
   text-align: center;
   display: inline-block;
 }
+@media (min-width: 481px){
 #articleSaveBtn {
-  float: left;
+  float: right;
   width: 30%;
   display: inline-block;
+  background-color: blue;
+
+}}
+
+@media (max-width: 480px){
+#articleSaveBtn {
+  float: none;
+  width: 50%;
+  display: flex;
+  background-color: blue;
+  position:absolute;
+  bottom: 10px;
+  right:35%
+
+
+}
 }
 #saveLink {
   width: 70%;
@@ -296,10 +349,10 @@ input {
 .cardScroll {
   flex: 0 0 auto;
   margin-right: 3px;
-  border: 2px solid red;
+  border: 2px solid gray;
   width: 130px;
   height: 300px;
-  background: black;
+  background: white;
   color: white;
   font-size:0.8em;
   text-align: center;
