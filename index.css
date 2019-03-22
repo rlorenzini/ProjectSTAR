@@ -242,13 +242,16 @@
   list-style-type: none;
 }
 
-input {
+input, textarea {
   border-width: thin;
   border-color: #f2f2f2;
   width: 90%;
   align-self: center;
 }
 
+#titleEntry {
+  margin-bottom: 5px;
+}
 #titleSpace {
   z-index: 1;
 }
@@ -299,8 +302,8 @@ input {
   border: 2px solid red;
   width: 130px;
   height: 300px;
-  background: black;
-  color: white;
+  background: white;
+  color: black;
   font-size:0.8em;
   text-align: center;
   z-index: 0;
