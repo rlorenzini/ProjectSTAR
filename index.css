@@ -234,15 +234,10 @@ cardScroll {
     background-color: #002244;
     position:absolute;
     bottom: 10px;
-<<<<<<< HEAD
     right:25%;
     border-radius: 15%;
      color: #B0B7BC;
   
-=======
-    right:25%
-
->>>>>>> master
   }
 }
 @media (min-width: 577px){
@@ -436,4 +431,43 @@ input {
 
 a {
   color: #002244;
+}
+#table {
+  border :1px solid #B0B7BC;
+  border-radius: 5px;
+  background-color: #B0B7BC;
+  padding: 100px;
+  position: relative;
+}
+#titleEntry{
+  position: absolute;
+  top:10px;
+  left:10px;
+
+
+}
+#imageEntry{
+  position: absolute;
+  top:40px;
+  
+  left:10px;
+}
+
+#contentEntry{
+  position: absolute;
+  bottom:10px;
+  right:10px;
+}
+
+#blogEntryBtn{
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+
+}
+#uploader {
+  position: relative;
+  bottom: 30px;
+  right: 90px;
+
 }
