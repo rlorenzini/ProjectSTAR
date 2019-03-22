@@ -102,7 +102,7 @@ function getUID() {
     var name, email, photoUrl, uid, emailVerified;
 
     if (user != null) {
-      if (user.uid == "78I5hgvWUzVGLpfNUOzEOyTlH8F3" || "FCIAB6mUByZ0w7EHOswbpBxk1n32" || "WoascjVSpNYYB9pFUgbNGvuswor1") {
+      if (user.uid == "78I5hgvWUzVGLpfNUOzEOyTlH8F3" || "FCIAB6mUByZ0w7EHOswbpBxk1n32" || "WoascjVSpNYYB9pFUgbNGvuswor1" || "q9pJhA6Y1DazyvwfIZ3uz66Wz6E2") {
         admin = "True"
         blogEntry()
         return user.uid
@@ -184,9 +184,6 @@ setTimeout(function(){
 }
 
 function displayComments(blogKey) {
-  // let elements = document.getElementsByClassName("title")
-  //   for (var i = 0; i < elements.length; i++) {
-  //     let blog = elements[i].parentNode.id
       let commentsLI = comments.map((comment) => {
         if (comment.blog == blogKey) {
           return `<li>
@@ -252,26 +249,11 @@ fetch(localNews)
 let newsID = newsItems.articles.map(function(news){
     // if (news.image ==""){
         return `
-        <div class="card cardScroll">
-        <a href = ${news.link}>${news.title}</a>
+        <div class="card cardScroll newsLink">
+        <a id="saveLink" href = ${news.link}>${news.title}</a>
+        <button id="articleSaveBtn" onclick="saveArticle('${news.title}','${news.link}')">Save</button>
         </div>
         `
-    // else {
-    // return `
-    // <div class="card cardScroll">
-    // <div class="row">
-    // <div class="col-md-4">
-    //   <img class="blog round-image" src='${news.image}' />
-    // </div>
-    // <div class="col-md-8 px-1">
-    //   <div class="card-block px-1">
-    //     <a href=${news.link}><span class="card-title title">${news.title}</span>
-    //   </div>
-    // </div>
-    // </div>
-    // </div>
-    //       `
-    // }
 })
 news.innerHTML=newsID.join("")
 })
