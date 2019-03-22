@@ -155,7 +155,7 @@
   width: 50px;
   height: 50px
 }
-@media (min-width: 481px){
+@media (min-width: 577px){
 cardScroll {
   
   flex: 0 0 auto;
@@ -172,7 +172,7 @@ cardScroll {
   z-index: 0;
 }
 }
-@media (max-width: 480px){
+@media (max-width: 576px){
 .cardScroll {
   position: relative;
   flex: 0 0 auto;
@@ -224,7 +224,7 @@ cardScroll {
 
 }
 
-@media (max-width: 480px){
+@media (max-width: 576px){
   #deleteSavedArticleButton {
     float: none;
     width: 60%;
@@ -236,7 +236,7 @@ cardScroll {
   
   }
 }
-@media (min-width: 481px){
+@media (min-width: 577px){
 #deleteSavedArticleButton {
   float: right;
   width: 30%;
@@ -250,7 +250,7 @@ cardScroll {
   text-align: center;
   display: inline-block;
 }
-@media (min-width: 481px){
+@media (min-width: 577px){
 #articleSaveBtn {
   float: right;
   width: 30%;
@@ -259,7 +259,7 @@ cardScroll {
 
 }}
 
-@media (max-width: 480px){
+@media (max-width: 576px){
 #articleSaveBtn {
   float: none;
   width: 50%;
