@@ -161,7 +161,7 @@ cardScroll {
 
   flex: 0 0 auto;
   margin-bottom: 3px;
-  border: 2px solid gray;
+  border: 2px solid #B0B7BC;
   width: 100%;
   height: auto;
   background: white;
@@ -178,7 +178,7 @@ cardScroll {
   position: relative;
   flex: 0 0 auto;
   margin-bottom: 3px;
-  border: 2px solid gray;
+  border: 2px solid #B0B7BC;
   width: 100%;
   height: auto;
   background: white;
@@ -198,7 +198,7 @@ cardScroll {
 
   flex: 0 0 auto;
   margin-bottom: 3px;
-  border: 2px solid gray;
+  border: 2px solid #B0B7BC;
   width: 100%;
   height: 400px;
   background: white;
@@ -231,11 +231,18 @@ cardScroll {
     float: none;
     width: 60%;
     display: flex;
-    background-color: blue;
+    background-color: #002244;
     position:absolute;
     bottom: 10px;
+<<<<<<< HEAD
+    right:25%;
+    border-radius: 15%;
+     color: #B0B7BC;
+  
+=======
     right:25%
 
+>>>>>>> master
   }
 }
 @media (min-width: 577px){
@@ -243,7 +250,9 @@ cardScroll {
   float: right;
   width: 30%;
   display: inline-block;
-  background-color: blue;
+  background-color: #002244;
+  border-radius: 15%;
+  color: #B0B7BC
 }
 }
 /* Local News Articles Display */
@@ -257,19 +266,24 @@ cardScroll {
   float: right;
   width: 30%;
   display: inline-block;
-  background-color: blue;
+  background-color: #002244;
+  border-radius: 15%;
+  color: #B0B7BC;
+}
 
-}}
+}
 
 @media (max-width: 576px){
 #articleSaveBtn {
   float: none;
   width: 50%;
   display: flex;
-  background-color: blue;
+  background-color: #002244;
   position:absolute;
   bottom: 10px;
-  right:35%
+  right:35%;
+  border-radius: 15%;
+  color: #B0B7BC
 
 
 }
@@ -414,4 +428,12 @@ input {
 .row p{
   border-right: none;
 }
+}
+.btn-primary{
+  color:#B0B7BC;
+  background-color:#002244;
+}
+
+a {
+  color: #002244;
 }
