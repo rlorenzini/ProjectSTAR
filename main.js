@@ -174,6 +174,7 @@ function submitComment (blog, title, comment) {
     }
   })
   document.getElementById(blog).getElementsByClassName('comments')[0].innerHTML = commentsLI.join("")
+  document.getElementById(title).value = ''
 }
 
 function getComments() {
@@ -190,7 +191,7 @@ setTimeout(function(){
 function displayComments(blogKey) {
       let commentsLI = comments.map((comment) => {
         if (comment.blog == blogKey) {
-          return `<li>
+          return `<li class="card alignSelf">
                 ${comment.comment}
                 </li>`
       } else {
@@ -224,9 +225,9 @@ if (windDirection == null){
 <div class="row">
 <image id= "icon" src= http://openweathermap.org/img/w/${weatherItems.weather[0].icon}.png>
  <p>${weatherItems.name} Weather: ${tempeRound} ° </p>
- <p>Wind  : ${windRound} Mph </p>
- <p>Sunrise: ${sunrise} </p>
- <p>Sunset: ${sunset} </p>
+ <p class="hideContent">Wind  : ${windRound} Mph </p>
+ <p class="hideContent">Sunrise: ${sunrise} </p>
+ <p class="hideContent">Sunset: ${sunset} </p>
 </div>`
 weather.innerHTML=weatherBug
 
@@ -237,9 +238,9 @@ let weatherBug = `
 <div class="row">
 <image id= "icon" src= http://openweathermap.org/img/w/${weatherItems.weather[0].icon}.png>
  <p>${weatherItems.name} Weather: ${tempeRound} °</p>
- <p>Wind  : ${windDirection} ${windRound} Mph </p>
- <p>Sunrise: ${sunrise} </p>
- <p>Sunset: ${sunset} </p>
+ <p class="hideContent">Wind  : ${windDirection} ${windRound} Mph </p>
+ <p class="hideContent">Sunrise: ${sunrise} </p>
+ <p class="hideContent">Sunset: ${sunset} </p>
 </div>`
 weather.innerHTML=weatherBug
 }
@@ -357,23 +358,27 @@ function displayBlogs() {
       let blogsLI = blogs.map((blog) => {
         if (blog.blogTitle != null) {
           return `<div id='${blog.key}' class="card cardBlog">
-          <div class="row">
+          <div id="titleSpace">
+          <div class="row alignSelf">
           <div class="col-md-4">
             <img class="blog round-image" src='${blog.blogImg}' />
           </div>
           <div class="col-md-8 px-3">
             <div class="card-block px-3">
-              <h4 class="card-title title">${blog.blogTitle}</h4>
+              <h4 class="card-title title ">${blog.blogTitle}</h4>
             </div>
           </div>
           </div>
           <p class="card-text">${blog.blogContent}</p>
-          <input class="commentTextBox" placeholder="Add comment here"></input>
+          </div>
+          <div id="commentSpace">
+          <input class="commentTextBox" id='${blog.blogTitle}' placeholder="Add comment here"></input>
           <div>
           <button class="btn btn-primary" type="button" id="displayComments" onclick=displayComments('${blog.key}')>Display Comments</button>
           <button class="btn btn-primary" onclick="submitComment('${blog.key}',document.getElementById('${blog.key}').getElementsByClassName('title')[0].innerHTML,document.getElementById('${blog.key}').getElementsByClassName('commentTextBox')[0].value)">Submit Comment</button>
           </div>
           <ul class="comments"></ul>
+          </div>
           </div>`
         }
     })
