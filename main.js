@@ -224,9 +224,9 @@ if (windDirection == null){
 <div class="row">
 <image id= "icon" src= http://openweathermap.org/img/w/${weatherItems.weather[0].icon}.png>
  <p>${weatherItems.name} Weather: ${tempeRound} ° </p>
- <p>Wind  : ${windRound} Mph </p>
- <p>Sunrise: ${sunrise} </p>
- <p>Sunset: ${sunset} </p>
+ <p class="hideContent">Wind  : ${windRound} Mph </p>
+ <p class="hideContent">Sunrise: ${sunrise} </p>
+ <p class="hideContent">Sunset: ${sunset} </p>
 </div>`
 weather.innerHTML=weatherBug
 
@@ -237,9 +237,9 @@ let weatherBug = `
 <div class="row">
 <image id= "icon" src= http://openweathermap.org/img/w/${weatherItems.weather[0].icon}.png>
  <p>${weatherItems.name} Weather: ${tempeRound} °</p>
- <p>Wind  : ${windDirection} ${windRound} Mph </p>
- <p>Sunrise: ${sunrise} </p>
- <p>Sunset: ${sunset} </p>
+ <p class="hideContent">Wind  : ${windDirection} ${windRound} Mph </p>
+ <p class="hideContent">Sunrise: ${sunrise} </p>
+ <p class="hideContent">Sunset: ${sunset} </p>
 </div>`
 weather.innerHTML=weatherBug
 }
