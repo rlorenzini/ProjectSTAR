@@ -97,20 +97,22 @@ firebase.auth().onAuthStateChanged(function(user) {
     window.user = user;
     })
 
-function getUID() {
-    var user = firebase.auth().currentUser;
-    var name, email, photoUrl, uid, emailVerified;
+    function getUID() {
+        var user = firebase.auth().currentUser;
+        var name, email, photoUrl, uid, emailVerified;
+    }
 
-    if (user != null) {
-      if (user.uid == "78I5hgvWUzVGLpfNUOzEOyTlH8F3" || "FCIAB6mUByZ0w7EHOswbpBxk1n32" || "WoascjVSpNYYB9pFUgbNGvuswor1" || "q9pJhA6Y1DazyvwfIZ3uz66Wz6E2") {
-        admin = "True"
-        blogEntry()
+    function adminCheck() {
+      if (user != null) {
+        if (user.uid == "78I5hgvWUzVGLpfNUOzEOyTlH8F3" || "FCIAB6mUByZ0w7EHOswbpBxk1n32" || "WoascjVSpNYYB9pFUgbNGvuswor1" || "q9pJhA6Y1DazyvwfIZ3uz66Wz6E2") {
+          admin = "True"
+          blogEntry()
+          return user.uid
+        } else {
         return user.uid
-      } else {
-      return user.uid
-      }
-}
-}
+        }
+    }
+    }
 
 function userName(emailAddress,password) {
     let usersRef = database.ref("users")
@@ -383,5 +385,5 @@ function getDirection(angle) {
 getBlogs()
 
 setTimeout(function(){
-  getUID()
+  adminCheck()
 }, 3000);
