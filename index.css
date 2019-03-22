@@ -208,6 +208,21 @@
   display: inline-block;
 }
 
+.comments li {
+  list-style-type: none;
+}
+
+#articlesUL li {
+  list-style-type: none;
+}
+
+input {
+  border-width: thin;
+  border-color: #f2f2f2;
+  width: 90%;
+  align-self: center;
+}
+
 /* mobile for news and blog display */
 @media (max-width: 576px) {
 #container{
@@ -229,8 +244,8 @@
   margin-bottom: 20px;
   width: 100%;
   -webkit-overflow-scrolling: touch;
-  
-  
+
+
 }
 
 .cardScroll {
