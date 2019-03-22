@@ -82,7 +82,7 @@
   grid-template-columns: [first] 5% [second] 35% [third] 5% [fourth] 50% [fifth] 5% [end];
   grid-template-rows: [row1-start] 100% [row1-end] auto;
 }
-#newsBlogWeatherGrid .currentNewsDisplay {
+#newsBlogWeatherGrid .containerForNews { /* =========================================================== */
   grid-column-start: second;
   grid-column-end: span 1;
   grid-row-start: row1;
@@ -321,7 +321,7 @@ input {
   margin: 5px;
 }
 
-/* mobile for news and blog display */
+/* mobile for news and blog display ================================================================================== */
 @media (max-width: 576px) {
 #container{
   display: grid;
@@ -369,27 +369,31 @@ input {
 
 #newsBlogWeatherGrid {
   display: grid;
-  grid-template-columns: [first] 5% [second] 42.5% [third] 5% [fourth] 42.5% [fifth] 5% [end];
-  grid-template-rows: [first] 25rem [second] 1rem  [third] 25rem [end];
+  grid-template-columns: [first] 5% [second] 90% [third] 5% [end];
+  grid-template-rows: [first] 700px [second] auto [end];
+}
+#newsBlogWeatherGrid .containerForNews {
+  grid-column-start: second;
+  grid-column-end: span 1;
+  grid-row-start: first;
+  grid-row-end: span 1;
 }
 #newsBlogWeatherGrid .currentNewsDisplay {
   grid-column-start: second;
-  grid-column-end: span 3;
+  grid-column-end: span 1;
   grid-row-start: first;
   grid-row-end: span 1;
 }
 #newsBlogWeatherGrid .allBlogDisplay {
   grid-column-start: second;
-  grid-column-end: span 3;
+  grid-column-end: span 1;
   grid-row-start: third;
   grid-row-end: span 1;
 }
-
-.hideContent{
-  display: none;
-}
-
-.row p{
-  border-right: none;
+#newsBlogWeatherGrid .responsiveSavedArticlesDisplay {
+  grid-column-start: second;
+  grid-column-end: span 1;
+  grid-row-start: second;
+  grid-row-end: span 1;
 }
 }
