@@ -270,16 +270,17 @@ function blogEntry () {
   if (admin == "True") {
     document.getElementById('blogEntry').style.display = "block";
 
-    let blogEntryForm = `<h3>Blog Entry</h3>
+    let blogEntryForm = `<h3>Blog Entry</h3><div id="table">
     <form method="post">
     <input type="text" id="titleEntry" placeholder="Title">
     <input type="file" id="imageEntry" value="upload">
     <progress value="0" max="100" id="uploader">0%</progress>
     <textarea cols="35" rows="5" id="contentEntry"></textarea>
     <button id="blogEntryBtn" type="button">Submit</button>
-    </form>`
+    </form></div>`
 
     document.getElementById('blogEntry').innerHTML = blogEntryForm
+    
 
 
 
@@ -315,8 +316,14 @@ let blogRef = blogsRef.push({
   blogID: titleEntry,
   blogTitle: titleEntry,
   blogImg: imageURL,
-  blogContent: contentEntry
+  blogContent: contentEntry,
+  
+
+
 })
+   document.getElementById('titleEntry').value=""
+  
+  document.getElementById('contentEntry').value=""
 })
 }}
 
