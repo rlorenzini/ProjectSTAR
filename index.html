@@ -94,16 +94,19 @@
 <div id="newsBlogWeatherGrid" class="newsBlogWeatherGrid">
 
 <!-- News Div-->
+<div class="containerForNews">
 <div id="currentNewsDisplay" class="currentNewsDisplay">
   <h4>Local News</h4>
 <div class="scrolling-wrapper-flexbox" id="news">
 </div>
-<div>
+</div>
+<div class="responsiveSavedArticlesDisplay">
   <h4>Saved Articles</h4>
-  <div id="articlesUL">
+  <div id="articlesUL" class="scrolling-wrapper-flexbox">
   </div>
-</div>
-</div>
+</div> <!-- closes responsiveSavedArticlesDisplay -->
+</div> <!-- closes containerForNews -->
+
 
 <!-- Blog Div -->
 <span id="allBlogDisplay" class="allBlogDisplay">
@@ -113,11 +116,12 @@
     </div>
   </div>
   <!-- Blog Entry -->
-  <div id="blogEntry" class="blogEntryDisplay card">
+  <div id="blogEntry" class="blogEntryDisplay">
   </div>
 </span>
 </div>
 </div>
+</div> <!-- closes newsBWGrid -->
 
   <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase.js"></script>
   <script>
