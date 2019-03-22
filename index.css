@@ -217,13 +217,14 @@ cardScroll {
 #articlesUL {
   list-style: none;
 }
+@media (min-width: 577px){
 #savedArticleLink {
   width: 70%;
   float: left;
   display: inline-block;
 
 }
-
+}
 @media (max-width: 576px){
   #deleteSavedArticleButton {
     float: none;
@@ -272,12 +273,13 @@ cardScroll {
 
 }
 }
+@media (min-width: 577px){
 #saveLink {
   width: 70%;
   float: left;
   display: inline-block;
 }
-
+}
 .comments li {
   list-style-type: none;
 }
