@@ -189,6 +189,25 @@
   vertical-align: middle;
   z-index: 0;
 }
+
+.newsLink {
+  width: 100%;
+  text-align: center;
+  display: inline-block;
+}
+
+#articleSaveBtn {
+  float: right;
+  width: 30%;
+  display: inline-block;
+}
+
+#saveLink {
+  width: 70%;
+  float: left;
+  display: inline-block;
+}
+
 /* mobile for news and blog display */
 @media (max-width: 576px) {
 #container{
