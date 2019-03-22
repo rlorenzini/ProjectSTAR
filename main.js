@@ -251,11 +251,12 @@ fetch(localNews)
 })
 .then (function(newsItems){
 let newsID = newsItems.articles.map(function(news){
+  let articleTitle = JSON.stringify(news.title).replace(/&/, "&amp;").replace(/"/g, "&quot;").replace(/'/g, "\\'")
     // if (news.image ==""){
         return `
         <div class="card cardScroll newsLink">
         <a id="saveLink" href = ${news.link}>${news.title}</a>
-        <button id="articleSaveBtn" onclick="saveArticle('${news.title}','${news.link}')">Save</button>
+        <button id="articleSaveBtn" onclick="saveArticle('${articleTitle}','${news.link}')">Save</button>
         </div>
         `
 })
