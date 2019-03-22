@@ -280,6 +280,7 @@ function blogEntry () {
     </form>`
 
     document.getElementById('blogEntry').innerHTML = blogEntryForm
+    
 
 
 
@@ -315,8 +316,14 @@ let blogRef = blogsRef.push({
   blogID: titleEntry,
   blogTitle: titleEntry,
   blogImg: imageURL,
-  blogContent: contentEntry
+  blogContent: contentEntry,
+  
+
+
 })
+   document.getElementById('titleEntry').value=""
+  
+  document.getElementById('contentEntry').value=""
 })
 }}
 
