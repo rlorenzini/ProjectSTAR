@@ -155,7 +155,7 @@
   width: 50px;
   height: 50px
 }
-
+@media (max-width: 480px){
 cardScroll {
   
   flex: 0 0 auto;
@@ -170,6 +170,7 @@ cardScroll {
   display: flex;
   align-items: center;
   z-index: 0;
+}
 }
 @media (max-width: 480px){
 .cardScroll {
@@ -235,11 +236,13 @@ cardScroll {
   
   }
 }
+@media (min-width: 481px){
 #deleteSavedArticleButton {
   float: right;
   width: 30%;
   display: inline-block;
   background-color: blue;
+}
 }
 /* Local News Articles Display */
 .newsLink {
@@ -247,13 +250,14 @@ cardScroll {
   text-align: center;
   display: inline-block;
 }
+@media (min-width: 481px){
 #articleSaveBtn {
   float: right;
   width: 30%;
   display: inline-block;
   background-color: blue;
 
-}
+}}
 
 @media (max-width: 480px){
 #articleSaveBtn {
