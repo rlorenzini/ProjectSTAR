@@ -335,4 +335,11 @@ input, textarea {
   grid-row-end: span 1;
 }
 
+.hideContent{
+  display: none;
+}
+
+.row p{
+  border-right: none;
+}
 }
