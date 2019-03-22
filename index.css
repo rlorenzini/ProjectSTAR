@@ -27,6 +27,7 @@
   grid-column-end: end;
   grid-row-start: row3;
   grid-row-end: span 1;
+  padding-bottom: 10px;
 }
 #entirePageGrid .newsBlogWeatherGrid {
   grid-column-start: first;
@@ -79,7 +80,7 @@
 /* NEWS BLOG WEATHER GRID DISPLAY START  */
 #newsBlogWeatherGrid {
   display: grid;
-  grid-template-columns: [first] 5% [second] 35% [third] 5% [fourth] 50% [fifth] 5% [end];
+  grid-template-columns: [first] 5% [second] 27% [third] 5% [fourth] 58% [fifth] 5% [end];
   grid-template-rows: [row1-start] 100% [row1-end] auto;
 }
 #newsBlogWeatherGrid .containerForNews { /* =========================================================== */
@@ -157,7 +158,7 @@
 }
 @media (min-width: 577px){
 cardScroll {
-  
+
   flex: 0 0 auto;
   margin-bottom: 3px;
   border: 2px solid #B0B7BC;
@@ -199,7 +200,7 @@ cardScroll {
   margin-bottom: 3px;
   border: 2px solid #B0B7BC;
   width: 100%;
-  height: 300px;
+  height: 400px;
   background: white;
   color: black;
   font-size:0.8em;
@@ -233,10 +234,15 @@ cardScroll {
     background-color: #002244;
     position:absolute;
     bottom: 10px;
+<<<<<<< HEAD
     right:25%;
     border-radius: 15%;
      color: #B0B7BC;
   
+=======
+    right:25%
+
+>>>>>>> master
   }
 }
 @media (min-width: 577px){
@@ -334,6 +340,13 @@ input {
 
 /* mobile for news and blog display ================================================================================== */
 @media (max-width: 576px) {
+  #entirePageGrid {
+    display: grid;
+    grid-template-columns: [first] 100% [end];
+    grid-template-rows: [row1] 3.91187rem [row2] 3rem [row3] 8rem [row4] auto [end];
+    align-items: stretch;
+  }
+
 #container{
   display: grid;
   grid-template-columns: [first] 50px [third] 126.15px [fourth] 90px [fifth] 73px [end];
@@ -362,7 +375,7 @@ input {
   margin-right: 3px;
   border: 2px solid gray;
   width: 130px;
-  height: 300px;
+  height: 200px;
   background: white;
   color: white;
   font-size:0.8em;
@@ -381,7 +394,7 @@ input {
 #newsBlogWeatherGrid {
   display: grid;
   grid-template-columns: [first] 5% [second] 90% [third] 5% [end];
-  grid-template-rows: [first] 700px [second] auto [end];
+  grid-template-rows: [first] 524px [second] auto [end];
 }
 #newsBlogWeatherGrid .containerForNews {
   grid-column-start: second;
