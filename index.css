@@ -159,7 +159,7 @@
 .cardScroll {
   flex: 0 0 auto;
   margin-bottom: 3px;
-  border: 2px solid $red;
+  border: 2px solid gray;
   width: 100%;
   height: auto;
   background: white;
@@ -178,7 +178,7 @@
 .cardBlog {
   flex: 0 0 auto;
   margin-bottom: 3px;
-  border: 2px solid $red;
+  border: 2px solid gray;
   width: 100%;
   height: auto;
   background: white;
@@ -189,19 +189,36 @@
   vertical-align: middle;
   z-index: 0;
 }
-
+/* Saved Articles Display */
+.savedNewsDisplay {
+  width: 100%;
+  text-align: center;
+  display: inline-block;
+}
+#articlesUL {
+  list-style: none;
+}
+#savedArticleLink {
+  width: 70%;
+  float: left;
+  display: inline-block;
+}
+#deleteSavedArticleButton {
+  float: left;
+  width: 30%;
+  display: inline-block;
+}
+/* Local News Articles Display */
 .newsLink {
   width: 100%;
   text-align: center;
   display: inline-block;
 }
-
 #articleSaveBtn {
-  float: right;
+  float: left;
   width: 30%;
   display: inline-block;
 }
-
 #saveLink {
   width: 70%;
   float: left;

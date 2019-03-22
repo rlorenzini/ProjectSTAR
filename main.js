@@ -135,9 +135,10 @@ function getSavedArticles() {
       let articleString = `${article.title}`;
       let articleTitle = articleString.substring(1, articleString.length-1);
       if (article.user == getUID()) {
-        return `<li>
-            <a href ='${article.url}'>${article.title}</a>
-            <button onclick="deleteArticle('${article.key}')">Delete</button>
+        return `<li><div class="card cardScroll savedNewsDisplay">
+            <a id="savedArticleLink" href ='${article.url}'>${article.title}</a>
+            <button id="deleteSavedArticleButton" onclick="deleteArticle('${article.key}')">Delete</button>
+            </div>
             </li>`
       } else {
       }
