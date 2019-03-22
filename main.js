@@ -100,6 +100,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     function getUID() {
         var user = firebase.auth().currentUser;
         var name, email, photoUrl, uid, emailVerified;
+        return user.uid
     }
 
     function adminCheck() {
