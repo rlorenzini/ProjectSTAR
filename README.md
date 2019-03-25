@@ -1,5 +1,5 @@
 # ProjectSTAR
-Digital Crafts group project with Steve, Tiffany, Audi, and Richard.
+Digital Crafts group project with Steve, Tiffany, Audi, and Richard.<br>
 **Check out the project at coherent-beast.surge.sh**
 ******************************************************************************************************************************
 
